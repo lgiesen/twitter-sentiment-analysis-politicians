@@ -19,7 +19,7 @@ def get_files(dir):
     :param dir: String
     :return: List of Strings
     """
-    return [s for s in os.listdir(dir) if not s.startswith('.')]
+    return sorted([s for s in os.listdir(dir) if not s.startswith('.')])
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -89,7 +89,7 @@ def create_dataset(conn, leader_hashtags, president):
                                             AND 
                                             item_number IN {str(tuple(newly_relevant_hashtags)).replace(',)',')')}
                                         )""", conn)
-    
+    # .replace(',)',')') because the tuple creates a comma at the end, which disrupts the SQL statement
     print(f'There are {tweets_by_hashtags.shape[0]} tweets which are in english and are relevant by using the hashtag')
     # concat the tweets from before with the relevant hashtag-tweets
     data_en_keywords_hashtags = pd.concat([data_en_keywords, tweets_by_hashtags], axis=0)
@@ -98,7 +98,7 @@ def create_dataset(conn, leader_hashtags, president):
 
 
 def preprocessing():
-    # The file `LA/2018/month_2018_04.db` was deleted because it was empty
+    # The files `LA/2018/month_2018_04.db` and `NYC/2020/month_2020_01_RADIUS.db` were deleted because they were empty or did not conform the data format of the other tables
     root = '/Volumes/Festplatte/data-UA/'
     data_path = root + 'data/'
     president = 'trump'
