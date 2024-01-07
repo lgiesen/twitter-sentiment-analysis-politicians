@@ -97,11 +97,10 @@ def create_dataset(conn, leader_hashtags, president):
 
 
 
-def preprocessing():
+def preprocessing(president):
     # The files `LA/2018/month_2018_04.db` and `NYC/2020/month_2020_01_RADIUS.db` were deleted because they were empty or did not conform the data format of the other tables
     root = '/Volumes/Festplatte/data-UA/'
     data_path = root + 'data/'
-    president = 'trump'
     cities = ['Birmingham', 'LA', 'London', 'NYC']
     years = [str(year) for year in range(2018, 2023)] # ['2018', '2019', '2020', '2021', '2022']
     boris_johnson_hashtags = ('BorisJohnson', 'UKPrimeMinister', 'ToryLeader', 'Boris')
@@ -111,6 +110,8 @@ def preprocessing():
     # make directory for relevant data
     if not os.path.exists(data_path):
         os.mkdir(data_path)
+        os.mkdir(data_path + 'trump')
+        os.mkdir(data_path + 'johnson')
     
     # check how long the loop will take
     total_iterations = len(cities) * len(years) * 12  # assuming 12 months per year
@@ -131,7 +132,7 @@ def preprocessing():
                 month_dataset = create_dataset(conn=conn, leader_hashtags=president_hashtags, president=president)
                 print(f'The shape of the preprocessed data is: {month_dataset.shape}')
                 # save dataset
-                month_dataset_path = f'{data_path}{city}-{year}-{month_only}.pkl'
+                month_dataset_path = f'{data_path}{president}/{city}-{year}-{month_only}.pkl'
                 month_dataset.to_pickle(month_dataset_path)
                 # close the connection
                 conn.close()
@@ -146,4 +147,5 @@ def preprocessing():
 
 
 if __name__ == '__main__':
-    preprocessing()
+    preprocessing(president='trump')
+    # preprocessing(president='johnson')
