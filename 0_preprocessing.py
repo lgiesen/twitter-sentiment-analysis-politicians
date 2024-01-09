@@ -144,10 +144,7 @@ def preprocessing(president):
                 # save data
                 month_dataset.to_pickle(f'{data_path}{president}/{filename}.pkl')
                 # create training set with X and y
-                month_dataset[['Compound']].to_pickle(f'{data_path}train/{president}/y-{filename}.pkl')
-                month_dataset[['text']].to_pickle(f'{data_path}train/{president}/X-{filename}.pkl')
                 # save to csv for ChatGPT 4.0 to read data
-                month_dataset[['text']].to_csv(f'{data_path}csv/{president}/{filename}.csv')
                 all_data.append(month_dataset)
                 X_data.append(month_dataset[['text']])
                 y_data.append(month_dataset[['Compound']])
