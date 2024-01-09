@@ -130,9 +130,6 @@ def preprocessing(president):
         os.mkdir(data_path + 'trump')
         os.mkdir(data_path + 'johnson')
         os.mkdir(data_path + 'train')
-        os.mkdir(data_path + 'train/johnson')
-        os.mkdir(data_path + 'train/trump')
-        os.mkdir(data_path + 'csv')
     
     # check how long the loop will take
     total_iterations = len(cities) * len(years) * 12  # assuming 12 months per year
@@ -157,9 +154,9 @@ def preprocessing(president):
                 month_dataset.to_pickle(f'{data_path}{president}/{filename}.pkl')
                 # create training set with X and y
                 # save to csv for ChatGPT 4.0 to read data
-                all_data.append(month_dataset)
-                X_data.append(month_dataset[['text']])
-                y_data.append(month_dataset[['Compound']])
+                all_data.concat(month_dataset)
+                X_data.concat(month_dataset[['text']])
+                y_data.concat(month_dataset[['Compound']])
                 # close the connection
                 conn.close()
 
