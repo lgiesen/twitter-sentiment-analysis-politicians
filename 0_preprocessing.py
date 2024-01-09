@@ -95,7 +95,12 @@ def create_dataset(conn, leader_hashtags, president):
     data_en_keywords_hashtags = pd.concat([data_en_keywords, tweets_by_hashtags], axis=0)
     return data_en_keywords_hashtags
 
-
+def export_data(data, path_without_filetype, pickle=True, csv=True):
+    if pickle:
+        data.to_pickle(f'{path_without_filetype}.pkl')
+    if csv:
+        data.to_csv(f'{path_without_filetype}.csv')
+    return
 
 def preprocessing(president):
     # The files `LA/2018/month_2018_04.db` and `NYC/2020/month_2020_01_RADIUS.db` were deleted because they were empty or did not conform the data format of the other tables
@@ -112,16 +117,19 @@ def preprocessing(president):
         os.mkdir(data_path)
         os.mkdir(data_path + 'trump')
         os.mkdir(data_path + 'johnson')
+        os.mkdir(data_path + 'train')
+        os.mkdir(data_path + 'train/johnson')
+        os.mkdir(data_path + 'train/trump')
+        os.mkdir(data_path + 'csv')
     
     # check how long the loop will take
     total_iterations = len(cities) * len(years) * 12  # assuming 12 months per year
     completed_iterations = 0
     start_time = time.time()
-
+    all_data, X_data, y_data = pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
     for city in cities:
         for year in years:
             for month in get_files(f'{root}{city}/{year}/'):
-                iteration_start_time = time.time()
                 month_only = month[-5:-3]
                 print(f'{city} - {year} - {month_only}')
                 # check if file exists
@@ -132,8 +140,17 @@ def preprocessing(president):
                 month_dataset = create_dataset(conn=conn, leader_hashtags=president_hashtags, president=president)
                 print(f'The shape of the preprocessed data is: {month_dataset.shape}')
                 # save dataset
-                month_dataset_path = f'{data_path}{president}/{city}-{year}-{month_only}.pkl'
-                month_dataset.to_pickle(month_dataset_path)
+                filename = f'{city}-{year}-{month_only}'
+                # save data
+                month_dataset.to_pickle(f'{data_path}{president}/{filename}.pkl')
+                # create training set with X and y
+                month_dataset[['Compound']].to_pickle(f'{data_path}train/{president}/y-{filename}.pkl')
+                month_dataset[['text']].to_pickle(f'{data_path}train/{president}/X-{filename}.pkl')
+                # save to csv for ChatGPT 4.0 to read data
+                month_dataset[['text']].to_csv(f'{data_path}csv/{president}/{filename}.csv')
+                all_data.append(month_dataset)
+                X_data.append(month_dataset[['text']])
+                y_data.append(month_dataset[['Compound']])
                 # close the connection
                 conn.close()
 
@@ -144,8 +161,11 @@ def preprocessing(president):
                 estimated_time_remaining = estimated_total_time - (time.time() - start_time)
                 print(f'Estimated time remaining: {estimated_time_remaining // 60} minutes, {estimated_time_remaining % 60:.2f} seconds')
                 print('\n')    
-
+    # export whole dataset
+    export_data(all_data, f'{data_path}{president}')
+    export_data(X_data, f'{data_path}train/X_{president}')
+    export_data(y_data, f'{data_path}train/y_{president}')
 
 if __name__ == '__main__':
     preprocessing(president='trump')
-    # preprocessing(president='johnson')
+    preprocessing(president='johnson')
