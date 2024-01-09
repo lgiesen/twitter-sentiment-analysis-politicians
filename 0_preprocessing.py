@@ -96,13 +96,25 @@ def create_dataset(conn, leader_hashtags, president):
     return data_en_keywords_hashtags
 
 def export_data(data, path_without_filetype, pickle=True, csv=True):
+    """
+    export data in a pickle and csv format
+    :param data: DataFrame
+    :param path_without_filetype: String filepath without the extension
+    :param pickle: Bool if it should be exported as pickle
+    :param csv: Bool if it should be exported as csv 
+    :return: None
+    """
     if pickle:
         data.to_pickle(f'{path_without_filetype}.pkl')
     if csv:
         data.to_csv(f'{path_without_filetype}.csv')
-    return
 
 def preprocessing(president):
+    """
+    preprocess the whole data and create a dataset
+    :param president: String (either 'trump' or 'johnson')
+    :return: None
+    """
     # The files `LA/2018/month_2018_04.db` and `NYC/2020/month_2020_01_RADIUS.db` were deleted because they were empty or did not conform the data format of the other tables
     root = '/Volumes/Festplatte/data-UA/'
     data_path = root + 'data/'
