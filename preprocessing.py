@@ -2,7 +2,7 @@ import os
 import sqlite3
 import time
 import pandas as pd
-from main import create_connection, get_files, export_data, get_data
+from main import get_files, export_data, get_data
 
 def create_dataset(conn, leader_hashtags, president):
     """Create a dataset based on a database connection to the SQLite database."""
@@ -11,7 +11,8 @@ def create_dataset(conn, leader_hashtags, president):
     FROM tweets 
     INNER JOIN sentiment USING (item_number) 
     INNER JOIN LIWC USING (item_number) 
-    WHERE text LIKE ?
+    LEFT JOIN place USING (place_id)
+    WHERE text LIKE ? AND (country_code = 'GB' OR country_code = 'US' OR country_code IS NULL OR country_code = '')
     """
     data_en_keywords = pd.read_sql_query(query, conn, params=(f'%{president}%',))
 
@@ -61,7 +62,6 @@ def preprocessing(president):
     }.get(president, ())
 
     os.makedirs(os.path.join(data_path, president), exist_ok=True)
-    os.makedirs(os.path.join(data_path, 'train'), exist_ok=True)
 
     total_iterations = len(cities) * len(years) * 12  # assuming 12 months per year
     completed_iterations = 0
@@ -79,12 +79,11 @@ def preprocessing(president):
                 completed_iterations += 1
                 print_progress(completed_iterations, total_iterations, start_time)
 
-        export_data(pd.concat(city_data, ignore_index=True), os.path.join(data_path, f'{president}-{city}.csv'))
+        export_data(pd.concat(city_data, ignore_index=True), os.path.join(data_path, f'{president}-{city}'))
 
     full_dataset = pd.concat(all_data, ignore_index=True)
-    export_data(full_dataset, os.path.join(data_path, f'{president}.csv'))
-    export_data(full_dataset[['text']], os.path.join(data_path, 'train', f'X_{president}.csv'))
-    export_data(full_dataset[['Compound']], os.path.join(data_path, 'train', f'y_{president}.csv'))
+    export_data(full_dataset, os.path.join(data_path, f'{president}'))
+    
 
 def print_progress(completed_iterations, total_iterations, start_time):
     """Print the progress of the preprocessing."""
@@ -93,6 +92,22 @@ def print_progress(completed_iterations, total_iterations, start_time):
     estimated_time_remaining = estimated_total_time - (time.time() - start_time)
     print(f'Estimated time remaining: {estimated_time_remaining // 60} minutes, {estimated_time_remaining % 60:.2f} seconds')
 
+def create_country_overview():
+    # president sentiment by country
+    for president in presidents:
+        birmingham = pd.read_pickle(f'{data_path}{president}-Birmingham.pkl')
+        london = pd.read_pickle(f'{data_path}{president}-London.pkl')
+        la = pd.read_pickle(f'{data_path}{president}-LA.pkl')
+        nyc = pd.read_pickle(f'{data_path}{president}-NYC.pkl')
+        
+        great_britain = pd.concat([birmingham, london], axis=0)
+        us = pd.concat([la, nyc], axis=0)
+        
+        export_data(great_britain, os.path.join(data_path, f'{president}-Great Britain'))
+        export_data(us, os.path.join(data_path, f'{president}-US'))
+
 if __name__ == '__main__':
-    preprocessing(president='trump')
-    preprocessing(president='johnson')
+    (root, data_path, presidents, cities, countries, years, colors) = get_data()
+    # preprocessing(president='trump')
+    # preprocessing(president='johnson')
+    create_country_overview()

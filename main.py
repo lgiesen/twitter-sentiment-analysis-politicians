@@ -58,8 +58,10 @@ def get_data():
     data_path = root + 'data/'
     presidents = ['trump', 'johnson']
     cities = ['Birmingham', 'LA', 'London', 'NYC']
+    countries = ['Great Britain', 'US']
     years = [str(year) for year in range(2018, 2023)] # ['2018', '2019', '2020', '2021', '2022']
-    return (root, data_path, presidents, cities, years)
+    colors = ['#910830', '#BFBFBF', '#6D0624', '#5E5E5D']
+    return (root, data_path, presidents, cities, countries, years, colors)
 
 # def main():
     # call some functions
