@@ -108,6 +108,7 @@ def create_country_overview():
 
 if __name__ == '__main__':
     (root, data_path, presidents, cities, countries, years, colors) = get_data()
-    # preprocessing(president='trump')
-    # preprocessing(president='johnson')
+    preprocessing(president='trump')
+    preprocessing(president='johnson')
     create_country_overview()
+    exec(open('get_average_sentiment.py').read())
