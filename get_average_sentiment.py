@@ -1,6 +1,9 @@
 import json
+
 import pandas as pd
+
 from main import get_data
+
 (root, data_path, presidents, cities, countries, years, colors) = get_data()
 
 def get_mean(filepath, col='Compound'):
@@ -13,10 +16,7 @@ def load_mean_count(json_filename, col=None):
         with open(f'results/{json_filename}.json', 'r') as file:
             data = json.load(file)
         # data = pd.read_json(f'results/{json_filename}', typ='series')
-        if not col:
-            return data
-        else:
-            return data[col]
+        return data[col] if col else data
     except json.JSONDecodeError as e:
         print(f"Error reading {json_filename}: {e}")
         # Handle the error or return a default value

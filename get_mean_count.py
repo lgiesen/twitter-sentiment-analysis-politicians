@@ -4,11 +4,14 @@ This script processes .db files containing tweet data and sentiment analysis res
 aggregates the data, and saves the output in JSON format for further analysis.
 """
 
-from main import get_data
+import json
 import os
 import sqlite3
+
 import pandas as pd
-import json
+
+from main import get_data
+
 # Retrieve configuration data
 (root, data_path, presidents, cities, countries, years, colors) = get_data()
 
@@ -50,7 +53,7 @@ def get_compound_stats(db_file):
     try:
         with sqlite3.connect(db_file) as conn:
             df = pd.read_sql_query(query, conn)
-            return df.iloc[0].to_dict() if not df.empty else {"total_compound": 0, "count": 0}
+            return {"total_compound": 0, "count": 0} if df.empty else df.iloc[0].to_dict()
     except sqlite3.DatabaseError as e:
         print(f"Database error in file {db_file}: {e}")
     except Exception as e:
@@ -72,16 +75,13 @@ def load_json_data(file_path):
 def calculate_weighted_mean(json_files):
     weighted_sum = 0
     total_weights = 0
-    
+
     for file_path in json_files:
         data = load_json_data(f'results/{file_path}_mean_count.json')
         weighted_sum += data['overall_mean'] * data['total_count']
         total_weights += data['total_count']
-    
-    if total_weights > 0:
-        return weighted_sum / total_weights
-    else:
-        return None
+
+    return weighted_sum / total_weights if total_weights > 0 else None
 
 if __name__ == "__main__":
     for city in cities:
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     for country, files in city_country_relation.items():
         country_means[country] = calculate_weighted_mean(files)
 
-    save_results(country_means, filename=f'results/country_mean_count.json')
+    save_results(country_means, filename='results/country_mean_count.json')
 
     # calculate the overall mean for every tweet
     db_files = get_db_files(root)
