@@ -1,12 +1,15 @@
 import os
 import sqlite3
 import time
-import pandas as pd
-from main import get_files, export_data, get_data
 
-def create_dataset(conn, leader_hashtags, president):
+import pandas as pd
+
+from main import export_data, get_data, get_files
+
+
+def create_dataset(conn, leader_hashtags, query, president):
     """Create a dataset based on a database connection to the SQLite database."""
-    query = f"""
+    query = """
     SELECT * 
     FROM tweets 
     INNER JOIN sentiment USING (item_number) 
@@ -14,7 +17,7 @@ def create_dataset(conn, leader_hashtags, president):
     LEFT JOIN place USING (place_id)
     WHERE text LIKE ? AND (country_code = 'GB' OR country_code = 'US' OR country_code IS NULL OR country_code = '')
     """
-    data_en_keywords = pd.read_sql_query(query, conn, params=(f'%{president}%',))
+    data_en_keywords = pd.read_sql_query(query, conn, params=(f'{president}'))
 
     assert 'Compound' in data_en_keywords.columns
 
@@ -40,7 +43,7 @@ def create_dataset(conn, leader_hashtags, president):
 
     return data_en_keywords_hashtags
 
-def process_month(root, city, year, month, president_hashtags, president, data_path):
+def process_month(root, city, year, month, president_hashtags, president, query, data_path):
     """Process data for a single month."""
     month_path = os.path.join(root, city, str(year), month)
     if not os.path.exists(month_path):
@@ -48,14 +51,14 @@ def process_month(root, city, year, month, president_hashtags, president, data_p
         return pd.DataFrame()
 
     with sqlite3.connect(month_path) as conn:
-        month_dataset = create_dataset(conn, leader_hashtags=president_hashtags, president=president)
+        month_dataset = create_dataset(conn, leader_hashtags=president_hashtags, query=query, president=president)
         filename = f'{city}-{year}-{month[-5:-3]}.pkl'
         month_dataset.to_pickle(os.path.join(data_path, president, filename))
         return month_dataset
 
-def preprocessing(president):
+def preprocessing(president, query):
     """Preprocess the whole data and create a dataset."""
-    (root, data_path, _, cities, years) = get_data()
+    (root, data_path, _, cities, _, years, _) = get_data()
     president_hashtags = {
         'trump': ('DonaldTrump', 'Trump2024', 'MakeAmericaGreatAgain', 'Trump'),
         'johnson': ('BorisJohnson', 'UKPrimeMinister', 'ToryLeader', 'Boris')
@@ -72,7 +75,7 @@ def preprocessing(president):
         city_data = []
         for year in years:
             for month in get_files(os.path.join(root, city, str(year))):
-                month_dataset = process_month(root, city, year, month, president_hashtags, president, data_path)
+                month_dataset = process_month(root, city, year, month, president_hashtags, president, query, data_path)
                 all_data.append(month_dataset)
                 city_data.append(month_dataset)
 
@@ -108,7 +111,8 @@ def create_country_overview():
 
 if __name__ == '__main__':
     (root, data_path, presidents, cities, countries, years, colors) = get_data()
-    preprocessing(president='trump')
-    preprocessing(president='johnson')
+    preprocessing(query='%trump%', president='trump')
+    # create dataset for boris johnson by looking for his first or his second name
+    preprocessing(query='%boris% OR text LIKE %johnson%', president='johnson')
     create_country_overview()
     exec(open('get_average_sentiment.py').read())
