@@ -61,6 +61,8 @@ def get_compound_stats(db_file):
     return {"total_compound": 0, "count": 0}
 
 def save_results(dict, filename):
+    import json
+
     # Write the dictionary to a JSON file
     with open(filename, 'w') as f:
         json.dump(dict, f)
@@ -69,6 +71,7 @@ def save_results(dict, filename):
 
 # combine overall_mean compound data of US cities with the weighted mean using the total_count
 def load_json_data(file_path):
+    import json
     with open(file_path, 'r') as file:
         return json.load(file)
 
@@ -84,6 +87,7 @@ def calculate_weighted_mean(json_files):
     return weighted_sum / total_weights if total_weights > 0 else None
 
 if __name__ == "__main__":
+    monthly_tweet_count = pd.DataFrame(index=cities)
     for city in cities:
         db_files = get_db_files(f'{root}{city}/')
         # Aggregate the stats
@@ -91,6 +95,10 @@ if __name__ == "__main__":
         total_count = 0
         for db_file in db_files:
             stats = get_compound_stats(db_file)
+            
+            month = db_file[-10:-3] # e.g., 2018_09
+            monthly_tweet_count.at[city, month] = stats['count']
+            
             total_compound += stats['total_compound']
             total_count += stats['count']
 
@@ -105,6 +113,11 @@ if __name__ == "__main__":
             "total_count": total_count
         }
         save_results(results, f'results/{city}_mean_count.json')
+    
+    monthly_tweet_count.loc['Great Britain'] = monthly_tweet_count.loc['Birmingham'] + monthly_tweet_count.loc['London']
+    monthly_tweet_count.loc['US'] = monthly_tweet_count.loc['LA'] + monthly_tweet_count.loc['NYC']
+    monthly_tweet_count.loc['All'] = monthly_tweet_count.loc['Great Britain'] + monthly_tweet_count.loc['US']
+    monthly_tweet_count.to_pickle('results/monthly_tweet_count.pkl')
 
     # Paths to the JSON files
     city_country_relation = {
