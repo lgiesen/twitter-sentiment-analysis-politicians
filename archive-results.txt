@@ -1,0 +1,112 @@
+\section{Data Overview}
+\subsection{Aggregated Data}
+The X (formerly Twitter) data ranges from August 2018 to July 2022 and reveals that the US accounted for almost 77\% of the relevant posts, with discussions about Trump exceeding those about Johnson by over four times (see Figure \ref{fig:data-trump-johnson-cities}). This discrepancy likely stems from the US's significant global political influence and the heightened domestic and international interest in its presidential activities. Furthermore, the fact that Trump, as the US president during a substantial portion of this period, commanded more public attention is consistent with the tendency for citizens and global observers alike to focus more on the leader of their own country or a major world power. The absence of seasonal trends suggests that the discussion volume and sentiment were influenced more by specific events and Trump's actions rather than seasonal or cyclical factors.
+%- similar development of each president in cities of each country -> higher homogeneity within nation – makes sense to compare nations - both in sentiment development and post count
+
+%GB has an average of 26080 posts per day and the US has 54831 (rounded).
+%NYC 25846, LA 28985, London 21080, Birmingham 4999
+
+
+\subsection{Sentiment Score - Countries and Cities}
+Despite Donald Trump's controversial status, he exhibits relatively small variance in sentiment scores, which might be the case because the mean sentiment calculation could neutralize the strong opinions from both his followers and opponents. For Boris Johnson, a slightly higher mean compound sentiment score could be reflective of less polarized or less intense public opinion compared to Trump.
+
+Both presidents show mean sentiment scores significantly below the general mean, potentially due to critical media coverage, controversial policies, and political or legal scandals affecting public sentiment.
+
+Great Britain has a higher sentiment score baseline compared to the US, which could be attributed to cultural differences in communication, where the stereotypical directness of Americans may result in more explicit negativity. Another factor is the heightened political division in the US leading to a more critical view of politicians.
+
+City-wise, the similarity in sentiment baselines within the same country like LA and NYC or London and Birmingham might be due to the influence of national media and the overshadowing of local concerns by nationwide issues. The slight misalignment in political views between Birmingham and London could stem from cultural and demographic differences, with Birmingham having a more rural influence compared to the metropolitan nature of London.
+\section{Donald Trump}
+\subsection{Trump - Post Count - Overall}
+The normalized post count data for President Donald Trump shows three significant peaks towards the end of his presidency. The first peak occurs from November 4th to November 8th, 2020, with an average of 7,785 posts per day, which correlates with the aftermath of the US presidential election, a period marked by extensive political discourse and media coverage \citep{NEWS_2020_Us_Election}. The official withdrawal from the Paris Climate Agreement also happened on the 4th November 2020, but it is not considered influential at this time because it was announced on June 1, 2017 \citep{ColumbiaLawSchool2017}.
+
+The second peak is observed from September 30th to October 2nd, 2020, averaging 8,459 posts per day, potentially linked to the first presidential debate and Trump's Covid-19 diagnosis, events that garnered considerable public attention \citep{TIMES_2020_Highlights_From}. 
+Finally, the third peak from January 6th to January 7th, 2021, with an average of 7,179 posts per day, aligns with the US Capitol riot. Trump's account on X was suspended as a result because he encouraged his supporters to march to the Capitol \citep{Reuters2021CapitolCharges, Youtube2021CapitolRiot, NPR2021TrumpSpeech}. an event that led to widespread global media coverage and social media discussion due to its unprecedented nature in American politics \citep{REUTERS_2021_Timeline_How}. 
+
+Unexpectedly, there is some stability in post counts and sentiment scores on X throughout Donald Trump's impeachment trials, which might be traced back to the fact that the second impeachment trial was the aftermath of the Capital Riot and it occurred at the end of Trump's term. This period did not markedly alter public discourse or sentiment on social media, likely due to entrenched political alignments, which did not represent a shift public opinion \cite{Gallup2021, Brookings2020}.
+
+\subsection{Trump - Post Count - Countries}
+The comparative analysis of normalized post counts for President Donald Trump between the United States and Great Britain reveals a consistently higher baseline in the United States, likely a reflection of Trump's direct political influence as the president. Concurrently, both nations demonstrate correlative surges in post counts during critical events, indicating a global responsiveness to significant political moments, exemplified by the collective attention during the Capitol incident on January 6-7, 2021.
+
+Divergences in the intensity of reactions are noted during specific periods. The spike in post activity in Great Britain on June 3-4, 2019, aligns with President Trump's state visit, indicating a heightened local interest not mirrored in the United States post counts \citep{HALLEMANN_2019_Town_And}. 
+
+These variances in engagement levels emphasize the significant impact of geographic location on the public's perception and interaction with political figures, suggesting that while international events provoke broad attention, the depth and character of public discourse are profoundly shaped by local circumstances and occurrences.
+
+\subsection{Trump - Post Count - Cities (no real insights/explanations)}
+Birmingham is the primary contributor to the peak in Great Britain's post counts on June 3-4, 2019 (see Figure \ref{fig:post_count-trump-countries} and \ref{fig:post_count-trump-cities}). The first date corresponds with Trump's state visit to the UK, which might have prompted localized discussions in Birmingham due to regional protests or political rallies. 
+
+In contrast, London's post counts predominantly account for the peak observed on January 6-7, 2021. This increase is likely related to the international impact of the Capitol insurrection, with London as a global city having a diverse population that actively engages with major international news events. Additionally, as the UK's capital, London may have hosted significant media discussions and public forums reacting to these events, leading to increased social media activity.
+
+The baseline of post counts across all cities remains relatively consistent. NYC and LA present very similar baselines, which may reflect the uniform distribution of interest and engagement with Trump's presidency across these major US urban centers.
+
+\subsection{Trump - Sentiment Score - Overall}
+The sentiment analysis for Donald Trump's public perception reveals distinct peaks and troughs, which coincide with specific events and statements. On June 14, 2020, there was a peak in normalized post counts and positive sentiment score of 0.15, potentially linked to Trump's comments on the political climate and his activities at West Point, as captured through a series of posts \citep{AmericanPresidencyProject2020}.
+
+In contrast, the period around early August 2019 saw a significant dip in sentiment, reaching -0.22, which can be connected to the intense criticism following the George Floyd protests and Trump's divisive response, including his threat to deploy the military against protestors \citep{SMH2020}. The notable negative sentiment on October 25, 2018, and June 1, 2020, could be linked to various policy decisions and public statements by Trump that were received unfavorably, although the specifics for these dates were not ascertainable from the data provided.
+
+Regarding the particularly low sentiment score of -0.31 in Great Britain on January 5, 2020, the data does not allow for a definitive correlation with specific events or statements. This instance underscores the importance of contextually rich datasets for accurate sentiment analysis.
+
+The consistently higher baseline sentiment for Trump in Great Britain, compared to the United States, may reflect the nuanced perception of political figures internationally. This is potentially due to their less direct influence on the daily lives of individuals in foreign nations. Moreover, the greater variance in sentiment scores in Great Britain could be attributed to the lower frequency of posts, amplifying the impact of individual sentiment expressions.
+
+\subsection{Trump - Sentiment Score - Countries}
+The sentiment analysis highlights that Donald Trump's baseline sentiment is higher in Britain compared to the United States, a pattern that inversely applies to Boris Johnson. This could indicate that political leaders tend to be more popular in foreign countries, possibly due to their policies having less direct impact on the daily lives of the international public, fostering a less critical viewpoint \citep{PewResearchCenter2023}.
+
+Variability in sentiment is more pronounced for Trump in Britain and for Johnson in the US, which may be attributed to less frequent discussion and hence fewer data points about foreign political leaders.
+
+Outliers in sentiment towards Trump are generally consistent between the US and Britain, with the exception of a peak missing in the US data on June 14, 2021. Furthermore, on January 5, 2020, a significant negative sentiment is observed in Britain, which is not mirrored in the US data, suggesting a localized event or issue may have driven a particularly strong reaction in Britain on that date.
+
+
+
+
+\subsection{Trump - Sentiment Score - Cities}
+The overall sentiments in Great Britain and the US differ, whereas the sentiment score has a very similar development within the cities of each country, emphasizing how national contexts shape public perception. 
+
+In Great Britain, London maintains a sentiment score closer to the national average, while Birmingham displays higher variance, suggesting that local factors may significantly impact public sentiment in smaller or less globally focused cities. These variations underscore the complexity of urban sentiment dynamics and the role of localized context in shaping public opinion of political figures.
+
+A notable outlier in sentiment occurs in LA on December 27, 2020, where Trump received a mean sentiment score of 0.12, which then sharply dropped to -0.28 the following day. This abrupt change might be traced back to negative media coverage by the LA Times \citep{Megerian2018, LosAngelesTimes2020}.
+
+\section{Boris Johnson}
+\subsection{Johnson - Post Count - Overall}
+The post activity from from June 2019 to January 2020 is punctuated by several significant spikes. The notable uptick in posts around May 24-25, 2020, aligns with widespread public discourse surrounding the Dominic Cummings controversy, where Johnson defended his chief advisor's violation of lockdown rules \citep{TimesCummingsLockdown2020}. Similarly, the surge around July 23-24, 2019, correlates with Boris Johnson's confirmation as the leader of the Conservative Party and his assumption of the Prime Minister's office, which came with a peak in popularity in Great Britain. 
+The single-day peak on May 10, 2020, coincides with Johnson addressing the nation on Covid-19 measures, while the spike on April 6, 2020, is concurrent with his hospitalization due to Covid-19. Election-related discourse is evident in the increased post count on December 12-13, 2019, while the surge on September 24, 2019, might relate to the Supreme Court's judgment on the prorogation of Parliament or the public funding to Jennifer Arcuri \citep{CooperArcuriReport2020}. 
+Lastly, the elevated posts on October 31, 2020, are likely in response to discussions around the UK's pandemic strategy and lockdown policies.
+
+These fluctuations in post counts are indicative of the public's engagement with key moments in Johnson's leadership, demonstrating the interconnection between political events and social media activity.
+
+\subsection{Johnson - Post Count - Countries}
+The normalized post count analysis for Boris Johnson across the United States and Great Britain reflects a higher baseline and significantly greater variance in Great Britain, indicating that the British audience is far more engaged in discussions about Johnson compared to the United States. This is expected as Johnson is a central figure in British politics, whereas in the US, he would naturally command less attention.
+
+From November 2021 to the end of the dataset, there is a notable increase in variance and a higher baseline in Great Britain. This period correlates with several political events in the UK, including discussions around government policies, Johnson's rise to Prime Minister, pivotal Brexit developments, and Johnson's leadership during the ongoing response to the Covid-19 pandemic. On 23 March 2020, Boris Johnson announced a critical lockdown, which sparked an expected increase in posts in Great Britain for the following months. The posts during that time exhibited a positive shift in sentiment, which suggests a comfort with the decision of a lockdown.
+
+The period from July 2019 to June 2022 shows a higher baseline, with the exception of a dip from April 2020 to July 2020. The increased baseline post-July 2019 could be due to Boris Johnson assuming the role of Prime Minister, which likely sparked sustained public interest and social media activity. The lower baseline during the early months of the Covid-19 pandemic might be due to a combination of factors, including the public's focus on pandemic-related information over political discourse and possibly a general decrease in social media activity due to the initial shock and adjustment to the lockdowns.
+
+\subsection{Johnson - Post Count - Cities}
+The normalized post count data for Boris Johnson, when analyzed by city, shows a notable similarity between LA and NYC. This resemblance could be explained by the role of national media and the overarching national context in the United States, which likely influences and homogenizes public discourse across large urban centers, thus diminishing local differences in post activity. Both cities, being major media hubs, would have access to the same national news stories and political discussions, contributing to a unified narrative and public response irrespective of the geographical distance between them.
+
+The similarity in post counts for LA and NYC may also be attributed to the shared characteristics of urban populations, which tend to have higher engagement in political discourse on social media. Additionally, as international cities, the global nature of significant events involving Boris Johnson, such as Brexit negotiations or his handling of the Covid-19 pandemic, would likely resonate similarly with the cosmopolitan populations of both cities.
+
+
+\subsection{Johnson - Sentiment Score - Overall}
+In the analysis of sentiment scores for Boris Johnson, we observe significant peaks in public sentiment between November 21, 2018, and June 21, 2019. On June 21, 2019, there was an exceptionally high sentiment score of 0.50. This period coincides with Boris Johnson's campaign for the leadership of the Conservative Party, his subsequent election as party leader, and the positive public reaction to his strong stance on Brexit, leading to his appointment as Prime Minister on July 24, 2019 \citep{Wikipedia2019Election, WikipediaBorisJohnson}.
+
+Looking at the low points, we see a concentration of negative sentiment since November 20, 2020, until April 16, 2022. On the start day, Johnson ignored findings that Home Secretary Priti Patel had bullied staff, breaching the ministerial code leading to the resignation of his ethics adviser \citep{GuardianPatelBullying2020}. Additionally, Johnson had to face criticism for the partygate scandal in April 2022, where he got fined for attending a party during lockdown \citep{SkyNewsPartygate2022}.
+
+The lowest sentiment score is observed from July 12 to July 14, 2021, with a mean of -0.17, and another significant dip on June 28, 2021, with a score of -0.19. On July 12, 2021, Prime Minister Boris Johnson addressed a coronavirus press conference, discussing the step towards lifting COVID-19 restrictions in England. This event, marking a significant shift in the government's pandemic response, could explain the peak in normalized post counts and the observed low point in Johnson's popularity, as public and media attention were highly focused on the government's handling of the pandemic and the implications of easing restrictions. These dates are within the context of Boris Johnson's handling of the COVID-19 pandemic, where his government faced various criticisms over the response measures and lockdown strategies, which likely influenced public opinion \citep{WikipediaBorisJohnson}. 
+
+The specific event of high sentiment in GB on June 21, 2019, contrasting with a low point in the US on June 2, 2019, requires further contextual examination. However, it's plausible that this could relate to different international perceptions of Johnson's political actions in the lead-up to becoming Prime Minister, with potential media coverage focusing on various aspects of his persona and political decisions \citep{Wikipedia2019Election}.
+
+Lastly, the peaks in US sentiment on December 4-5, 2021, with a score of 0.44, and the noted low points near June 2019 in the US, and near July 2021 and February 2021 in GB, may correlate with specific policy announcements, political controversies, or global events that Boris Johnson was associated with during those times \citep{WikipediaBorisJohnson}.
+
+For a complete picture, it's necessary to cross-reference these sentiment scores with detailed political timelines and media reports, as public opinion is often a complex interplay of various factors, including political performance, personal image, and national as well as international events.
+
+\subsection{Johnson - Sentiment Score - Countries}
+
+Boris Johnson's sentiment scores in the US and UK reveal that he is more popular on average in the US than in the UK, with a mean sentiment score of 0.17 versus 0.15 in the US. This higher baseline in the US may be influenced by Johnson's international perception and media portrayal, which can sometimes be more favorable from a distance \citep{ExpressUK2021}.
+
+The positive sentiment phase in GB from November 23, 2018, to June 21, 2019, corresponds with significant events in Johnson's political career, notably his election as the Conservative Party leader and the Brexit campaign. On the other hand, the negative sentiment phase in the US from December 9, 2020, to April 18, 2021, and in GB from May 17, 2021, to July 14, 2021, might reflect public reaction to his government's handling of the COVID-19 pandemic, where the initial 'rally-round-the-flag' effect faded as challenges persisted \citep{UKinaChangingEurope2020}.
+
+The divergence in sentiment on June 21, 2019, where GB shows a peak while the US (especially LA) indicates a low point, could suggest varied responses to domestic political achievements versus international scrutiny. The specific peaks and troughs in sentiment scores at various points in 2021 for both the US and GB likely correspond to Johnson's political decisions and their public reception, although further research would be needed to map these scores to particular events or statements.
+
+\subsection{Johnson - Sentiment Score - Cities}
+The significant sentiment peaks for Boris Johnson in cities like Birmingham, especially the sudden shift from a high positive sentiment on January 10, 2020, to a notable negative sentiment the following day, can be linked to key political events. Johnson's term as Prime Minister was marked by Brexit negotiations, where he sought to revise the withdrawal agreement and faced multiple parliamentary challenges. His leadership during this time was characterized by both support for his determination to "Get Brexit Done" and criticism for his handling of the political process, which included proroguing Parliament and securing a revised withdrawal agreement after a failed initial attempt. These political maneuvers likely influenced public sentiment, resulting in fluctuations as observed in the sentiment analysis \citep{Wikipedia2019Election}.
+
+The peak in Birmingham on February 18, 2021, with a sentiment score of 0.55, may reflect responses to Johnson's policies or public statements around that time. However, without direct correlation to specific events on that exact date, the cause of this sentiment peak remains speculative.

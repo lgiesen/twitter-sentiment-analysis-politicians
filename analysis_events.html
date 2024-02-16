@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>analysis_events</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="analysis_events_files/libs/clipboard/clipboard.min.js"></script>
+<script src="analysis_events_files/libs/quarto-html/quarto.js"></script>
+<script src="analysis_events_files/libs/quarto-html/popper.min.js"></script>
+<script src="analysis_events_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="analysis_events_files/libs/quarto-html/anchor.min.js"></script>
+<link href="analysis_events_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="analysis_events_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="analysis_events_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="analysis_events_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="analysis_events_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> main <span class="im">import</span> get_data</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>(root, data_path, presidents, cities, countries, years, colors) <span class="op">=</span> get_data()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>timeframe <span class="op">=</span> (<span class="st">'2018-08-01'</span>, <span class="st">'2022-07-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="aggregated-daily-sentiment" class="level1">
+<h1>Aggregated Daily Sentiment</h1>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_day_and_get_daily_sentiment(data):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Group the data by day and calculate the average 'Compound' value</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert to datetime</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">'created_at'</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">'created_at'</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">'day'</span>] <span class="op">=</span> data[<span class="st">'created_at'</span>].dt.date</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    daily_sentiment <span class="op">=</span> data.groupby(<span class="st">'day'</span>)[<span class="st">'Compound'</span>].mean().reset_index()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data, daily_sentiment</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_compound_mean(data):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">'Compound'</span> <span class="kw">in</span> data.columns</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data[<span class="st">'Compound'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mean_compound <span class="op">=</span> pd.read_pickle(<span class="st">'results/mean_compound.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_sentiment_with_highlights_and_timeframes(daily_sentiment, title, mean_location<span class="op">=</span><span class="va">None</span>, num_top_points<span class="op">=</span><span class="dv">10</span>, num_bottom_points<span class="op">=</span><span class="dv">10</span>, timeframe<span class="op">=</span><span class="va">None</span>, colors<span class="op">=</span><span class="va">None</span>, average_compound<span class="op">=</span><span class="va">None</span>, save_path<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">8</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    sns.lineplot(x<span class="op">=</span><span class="st">'day'</span>, y<span class="op">=</span><span class="st">'Compound'</span>, data<span class="op">=</span>daily_sentiment, color<span class="op">=</span>colors[<span class="dv">1</span>])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    top_points_list <span class="op">=</span> []  <span class="co"># List to store top points</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    bottom_points_list <span class="op">=</span> []  <span class="co"># List to store bottom points</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_top_points <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        top_points <span class="op">=</span> daily_sentiment.nlargest(num_top_points, <span class="st">'Compound'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> index, row <span class="kw">in</span> top_points.iterrows():</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            plt.scatter(row[<span class="st">'day'</span>], row[<span class="st">'Compound'</span>], color<span class="op">=</span>colors[<span class="dv">0</span>], s<span class="op">=</span><span class="dv">30</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            plt.text(row[<span class="st">'day'</span>], row[<span class="st">'Compound'</span>], <span class="ss">f"</span><span class="sc">{</span>row[<span class="st">'day'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>row[<span class="st">'Compound'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">8</span>, va<span class="op">=</span><span class="st">'bottom'</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            top_points_list.append((row[<span class="st">'day'</span>], row[<span class="st">'Compound'</span>]))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> num_bottom_points <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        bottom_points <span class="op">=</span> daily_sentiment.nsmallest(num_bottom_points, <span class="st">'Compound'</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> index, row <span class="kw">in</span> bottom_points.iterrows():</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            plt.scatter(row[<span class="st">'day'</span>], row[<span class="st">'Compound'</span>], color<span class="op">=</span>colors[<span class="dv">2</span>], s<span class="op">=</span><span class="dv">30</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            plt.text(row[<span class="st">'day'</span>], row[<span class="st">'Compound'</span>], <span class="ss">f"</span><span class="sc">{</span>row[<span class="st">'day'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>row[<span class="st">'Compound'</span>]<span class="sc">:.2f}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">8</span>, va<span class="op">=</span><span class="st">'bottom'</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            bottom_points_list.append((row[<span class="st">'day'</span>], row[<span class="st">'Compound'</span>]))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> timeframe:</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        plt.axvspan(pd.to_datetime(timeframe[<span class="dv">0</span>]).date(), pd.to_datetime(timeframe[<span class="dv">1</span>]).date(), color<span class="op">=</span>colors[<span class="dv">0</span>], alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> average_compound:</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        plt.axhline(average_compound, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f"Mean Sentiment Score (</span><span class="sc">{</span>average_compound<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        offset <span class="op">=</span> (daily_sentiment[<span class="st">'Compound'</span>].<span class="bu">max</span>() <span class="op">-</span> daily_sentiment[<span class="st">'Compound'</span>].<span class="bu">min</span>()) <span class="op">*</span> <span class="fl">0.02</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        plt.text(pd.to_datetime(daily_sentiment[<span class="st">'day'</span>].<span class="bu">max</span>()), average_compound <span class="op">+</span> offset, <span class="ss">f' </span><span class="sc">{</span>average_compound<span class="sc">:.2f}</span><span class="ss">'</span>, verticalalignment<span class="op">=</span><span class="st">'bottom'</span>, horizontalalignment<span class="op">=</span><span class="st">'right'</span>, color<span class="op">=</span><span class="st">'black'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mean_location <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        plt.axhline(mean_location, color<span class="op">=</span>colors[<span class="dv">0</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Mean Location Sentiment Score (</span><span class="sc">{</span>mean_location<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        offset <span class="op">=</span> (daily_sentiment[<span class="st">'Compound'</span>].<span class="bu">max</span>() <span class="op">-</span> daily_sentiment[<span class="st">'Compound'</span>].<span class="bu">min</span>()) <span class="op">*</span> <span class="fl">0.03</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        plt.text(pd.to_datetime(daily_sentiment[<span class="st">'day'</span>].<span class="bu">max</span>()), mean_location <span class="op">-</span> offset, <span class="ss">f' </span><span class="sc">{</span>mean_location<span class="sc">:.2f}</span><span class="ss">'</span>, verticalalignment<span class="op">=</span><span class="st">'top'</span>, horizontalalignment<span class="op">=</span><span class="st">'right'</span>, color<span class="op">=</span>colors[<span class="dv">0</span>], fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Sentiment Score'</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    sns.despine()</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> save_path:</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        plt.savefig(save_path, <span class="bu">format</span><span class="op">=</span><span class="st">'png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> top_points_list, bottom_points_list</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_outliers(top_points, bottom_points):</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Top Points:"</span>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> date, sentiment <span class="kw">in</span> top_points:</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Date: </span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">, Sentiment: </span><span class="sc">{</span>sentiment<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Bottom Points:"</span>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> date, sentiment <span class="kw">in</span> bottom_points:</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Date: </span><span class="sc">{</span>date<span class="sc">}</span><span class="ss">, Sentiment: </span><span class="sc">{</span>sentiment<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> president <span class="kw">in</span> presidents:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get sentiment development regardless of location</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> pd.read_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">.pkl'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    data, daily_sentiment <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    average_compound <span class="op">=</span> get_compound_mean(data)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    top_points, bottom_points <span class="op">=</span> plot_sentiment_with_highlights_and_timeframes(daily_sentiment,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                                            title <span class="op">=</span> <span class="ss">f'Daily Mean Compound Sentiment Score for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                                            colors<span class="op">=</span>colors,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                                            average_compound<span class="op">=</span>average_compound,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                                            mean_location<span class="op">=</span>mean_compound.at[<span class="st">'All'</span>,<span class="st">'Total'</span>],</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                                            save_path<span class="op">=</span><span class="ss">f'visualizations/compound_sentiment/outliers/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">.png'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    print_outliers(top_points, bottom_points)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get location-specific sentiment development</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> location <span class="kw">in</span> (cities <span class="op">+</span> countries):</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> pd.read_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">.pkl'</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        data, daily_sentiment <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        average_compound <span class="op">=</span> get_compound_mean(data)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        top_points, bottom_points <span class="op">=</span> plot_sentiment_with_highlights_and_timeframes(daily_sentiment,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                                                title <span class="op">=</span> <span class="ss">f'Daily Mean Compound Sentiment Score for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> in </span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                                                colors<span class="op">=</span>colors,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>                                                average_compound<span class="op">=</span>average_compound,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                                                mean_location<span class="op">=</span>mean_compound.at[<span class="st">'All'</span>,location],</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                                                save_path<span class="op">=</span><span class="ss">f'visualizations/compound_sentiment/outliers/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">.png'</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        print_outliers(top_points, bottom_points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2021-06-14, Sentiment: 0.23
+Date: 2021-06-13, Sentiment: 0.19
+Date: 2021-10-03, Sentiment: 0.15
+Date: 2020-06-14, Sentiment: 0.15
+Date: 2021-05-14, Sentiment: 0.14
+Date: 2021-11-25, Sentiment: 0.13
+Date: 2021-12-25, Sentiment: 0.11
+Date: 2019-12-25, Sentiment: 0.11
+Date: 2022-01-01, Sentiment: 0.11
+Date: 2021-12-30, Sentiment: 0.10
+
+Bottom Points:
+Date: 2019-08-04, Sentiment: -0.22
+Date: 2019-08-05, Sentiment: -0.21
+Date: 2020-06-01, Sentiment: -0.18
+Date: 2018-10-25, Sentiment: -0.18
+Date: 2022-01-06, Sentiment: -0.18
+Date: 2020-01-05, Sentiment: -0.18
+Date: 2019-07-15, Sentiment: -0.17
+Date: 2021-04-10, Sentiment: -0.16
+Date: 2020-05-29, Sentiment: -0.16
+Date: 2018-10-29, Sentiment: -0.16</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2022-04-01, Sentiment: 0.95
+Date: 2021-07-20, Sentiment: 0.95
+Date: 2021-12-13, Sentiment: 0.89
+Date: 2021-05-30, Sentiment: 0.88
+Date: 2021-11-29, Sentiment: 0.88
+Date: 2021-12-22, Sentiment: 0.86
+Date: 2022-05-05, Sentiment: 0.85
+Date: 2022-02-12, Sentiment: 0.84
+Date: 2021-11-18, Sentiment: 0.82
+Date: 2021-10-02, Sentiment: 0.79
+
+Bottom Points:
+Date: 2021-03-21, Sentiment: -0.95
+Date: 2021-07-23, Sentiment: -0.91
+Date: 2021-11-21, Sentiment: -0.89
+Date: 2021-08-06, Sentiment: -0.89
+Date: 2021-06-20, Sentiment: -0.88
+Date: 2021-12-05, Sentiment: -0.88
+Date: 2022-01-10, Sentiment: -0.87
+Date: 2022-05-15, Sentiment: -0.83
+Date: 2021-06-24, Sentiment: -0.79
+Date: 2021-11-26, Sentiment: -0.74</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2021-05-14, Sentiment: 0.23
+Date: 2021-03-08, Sentiment: 0.16
+Date: 2022-04-24, Sentiment: 0.13
+Date: 2020-06-14, Sentiment: 0.13
+Date: 2021-12-25, Sentiment: 0.12
+Date: 2020-12-27, Sentiment: 0.12
+Date: 2021-10-03, Sentiment: 0.12
+Date: 2019-12-25, Sentiment: 0.11
+Date: 2021-10-14, Sentiment: 0.11
+Date: 2021-06-20, Sentiment: 0.11
+
+Bottom Points:
+Date: 2022-05-08, Sentiment: -0.28
+Date: 2020-12-28, Sentiment: -0.28
+Date: 2021-06-21, Sentiment: -0.22
+Date: 2019-08-04, Sentiment: -0.22
+Date: 2022-01-06, Sentiment: -0.21
+Date: 2019-08-05, Sentiment: -0.21
+Date: 2020-06-01, Sentiment: -0.21
+Date: 2021-06-28, Sentiment: -0.21
+Date: 2021-08-23, Sentiment: -0.20
+Date: 2021-11-20, Sentiment: -0.20</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-7.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2021-06-14, Sentiment: 0.59
+Date: 2021-08-06, Sentiment: 0.57
+Date: 2022-02-13, Sentiment: 0.57
+Date: 2021-06-13, Sentiment: 0.57
+Date: 2021-06-09, Sentiment: 0.52
+Date: 2021-06-10, Sentiment: 0.48
+Date: 2021-06-17, Sentiment: 0.48
+Date: 2021-10-26, Sentiment: 0.47
+Date: 2021-09-07, Sentiment: 0.44
+Date: 2021-10-30, Sentiment: 0.44
+
+Bottom Points:
+Date: 2021-10-20, Sentiment: -0.41
+Date: 2020-01-05, Sentiment: -0.31
+Date: 2021-04-06, Sentiment: -0.30
+Date: 2021-06-05, Sentiment: -0.27
+Date: 2022-02-07, Sentiment: -0.27
+Date: 2022-05-11, Sentiment: -0.24
+Date: 2019-07-15, Sentiment: -0.24
+Date: 2021-03-22, Sentiment: -0.23
+Date: 2021-12-05, Sentiment: -0.22
+Date: 2019-08-05, Sentiment: -0.21</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-9.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2021-09-04, Sentiment: 0.20
+Date: 2021-11-25, Sentiment: 0.19
+Date: 2021-11-15, Sentiment: 0.17
+Date: 2020-06-14, Sentiment: 0.17
+Date: 2021-06-14, Sentiment: 0.16
+Date: 2021-10-18, Sentiment: 0.15
+Date: 2022-05-12, Sentiment: 0.15
+Date: 2022-01-13, Sentiment: 0.14
+Date: 2022-01-14, Sentiment: 0.14
+Date: 2021-09-16, Sentiment: 0.13
+
+Bottom Points:
+Date: 2021-04-10, Sentiment: -0.24
+Date: 2019-08-04, Sentiment: -0.22
+Date: 2019-08-05, Sentiment: -0.22
+Date: 2022-03-02, Sentiment: -0.22
+Date: 2018-10-25, Sentiment: -0.21
+Date: 2022-03-04, Sentiment: -0.21
+Date: 2021-12-14, Sentiment: -0.18
+Date: 2020-06-01, Sentiment: -0.17
+Date: 2021-09-21, Sentiment: -0.17
+Date: 2021-01-28, Sentiment: -0.17</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-11.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2021-12-22, Sentiment: 0.56
+Date: 2021-06-13, Sentiment: 0.53
+Date: 2021-06-14, Sentiment: 0.53
+Date: 2021-08-06, Sentiment: 0.52
+Date: 2021-06-09, Sentiment: 0.49
+Date: 2022-02-13, Sentiment: 0.47
+Date: 2022-01-01, Sentiment: 0.46
+Date: 2022-04-01, Sentiment: 0.46
+Date: 2021-09-09, Sentiment: 0.44
+Date: 2021-12-13, Sentiment: 0.44
+
+Bottom Points:
+Date: 2021-10-20, Sentiment: -0.34
+Date: 2021-12-05, Sentiment: -0.28
+Date: 2020-01-05, Sentiment: -0.28
+Date: 2022-05-15, Sentiment: -0.27
+Date: 2021-06-05, Sentiment: -0.26
+Date: 2019-07-15, Sentiment: -0.23
+Date: 2019-08-05, Sentiment: -0.22
+Date: 2021-04-06, Sentiment: -0.21
+Date: 2022-04-16, Sentiment: -0.20
+Date: 2022-02-07, Sentiment: -0.20</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-13.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2020-06-14, Sentiment: 0.14
+Date: 2021-11-25, Sentiment: 0.13
+Date: 2021-05-14, Sentiment: 0.10
+Date: 2019-12-25, Sentiment: 0.10
+Date: 2021-10-03, Sentiment: 0.10
+Date: 2021-12-25, Sentiment: 0.10
+Date: 2021-09-25, Sentiment: 0.08
+Date: 2021-10-14, Sentiment: 0.08
+Date: 2022-05-21, Sentiment: 0.07
+Date: 2022-04-15, Sentiment: 0.07
+
+Bottom Points:
+Date: 2019-08-04, Sentiment: -0.22
+Date: 2019-08-05, Sentiment: -0.21
+Date: 2020-06-01, Sentiment: -0.19
+Date: 2018-10-25, Sentiment: -0.19
+Date: 2022-01-06, Sentiment: -0.18
+Date: 2021-08-23, Sentiment: -0.18
+Date: 2021-04-10, Sentiment: -0.17
+Date: 2018-10-29, Sentiment: -0.17
+Date: 2021-01-06, Sentiment: -0.17
+Date: 2020-05-31, Sentiment: -0.17</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-15.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2019-06-21, Sentiment: 0.50
+Date: 2018-11-23, Sentiment: 0.36
+Date: 2018-11-21, Sentiment: 0.32
+Date: 2019-03-19, Sentiment: 0.32
+Date: 2019-01-31, Sentiment: 0.29
+Date: 2018-12-30, Sentiment: 0.29
+Date: 2019-01-11, Sentiment: 0.28
+Date: 2019-04-24, Sentiment: 0.28
+Date: 2019-05-12, Sentiment: 0.28
+Date: 2019-01-16, Sentiment: 0.28
+
+Bottom Points:
+Date: 2021-07-12, Sentiment: -0.23
+Date: 2021-06-28, Sentiment: -0.19
+Date: 2021-07-13, Sentiment: -0.15
+Date: 2021-07-14, Sentiment: -0.13
+Date: 2022-04-13, Sentiment: -0.13
+Date: 2021-01-27, Sentiment: -0.11
+Date: 2022-02-07, Sentiment: -0.10
+Date: 2022-04-03, Sentiment: -0.10
+Date: 2020-11-20, Sentiment: -0.10
+Date: 2022-04-12, Sentiment: -0.10</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-17.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2019-06-21, Sentiment: 0.81
+Date: 2018-12-25, Sentiment: 0.72
+Date: 2018-08-20, Sentiment: 0.63
+Date: 2019-03-01, Sentiment: 0.60
+Date: 2019-06-23, Sentiment: 0.57
+Date: 2019-01-04, Sentiment: 0.56
+Date: 2021-02-18, Sentiment: 0.55
+Date: 2018-12-30, Sentiment: 0.54
+Date: 2020-01-10, Sentiment: 0.52
+Date: 2018-10-27, Sentiment: 0.51
+
+Bottom Points:
+Date: 2020-01-07, Sentiment: -0.41
+Date: 2019-04-17, Sentiment: -0.40
+Date: 2018-08-16, Sentiment: -0.40
+Date: 2018-09-06, Sentiment: -0.36
+Date: 2018-09-18, Sentiment: -0.34
+Date: 2020-08-19, Sentiment: -0.32
+Date: 2020-08-07, Sentiment: -0.32
+Date: 2018-11-12, Sentiment: -0.31
+Date: 2020-08-20, Sentiment: -0.30
+Date: 2022-04-22, Sentiment: -0.29</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-19.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2019-03-19, Sentiment: 0.61
+Date: 2018-12-25, Sentiment: 0.50
+Date: 2019-08-02, Sentiment: 0.50
+Date: 2019-11-28, Sentiment: 0.49
+Date: 2018-12-17, Sentiment: 0.48
+Date: 2019-07-11, Sentiment: 0.48
+Date: 2019-07-15, Sentiment: 0.46
+Date: 2022-01-15, Sentiment: 0.45
+Date: 2018-11-23, Sentiment: 0.45
+Date: 2020-06-07, Sentiment: 0.45
+
+Bottom Points:
+Date: 2019-06-02, Sentiment: -0.26
+Date: 2020-09-24, Sentiment: -0.24
+Date: 2022-01-14, Sentiment: -0.24
+Date: 2022-02-07, Sentiment: -0.16
+Date: 2021-03-13, Sentiment: -0.16
+Date: 2021-08-29, Sentiment: -0.16
+Date: 2021-03-21, Sentiment: -0.16
+Date: 2021-03-24, Sentiment: -0.13
+Date: 2021-07-18, Sentiment: -0.12
+Date: 2021-11-02, Sentiment: -0.11</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-21.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2019-05-12, Sentiment: 0.35
+Date: 2019-01-03, Sentiment: 0.32
+Date: 2019-02-23, Sentiment: 0.31
+Date: 2018-11-23, Sentiment: 0.31
+Date: 2018-11-21, Sentiment: 0.31
+Date: 2018-12-29, Sentiment: 0.30
+Date: 2019-01-23, Sentiment: 0.30
+Date: 2018-11-08, Sentiment: 0.30
+Date: 2019-04-24, Sentiment: 0.30
+Date: 2018-10-12, Sentiment: 0.29
+
+Bottom Points:
+Date: 2021-07-12, Sentiment: -0.28
+Date: 2021-06-28, Sentiment: -0.25
+Date: 2021-07-13, Sentiment: -0.22
+Date: 2021-07-14, Sentiment: -0.19
+Date: 2022-04-13, Sentiment: -0.15
+Date: 2022-04-15, Sentiment: -0.14
+Date: 2022-03-19, Sentiment: -0.14
+Date: 2021-01-27, Sentiment: -0.13
+Date: 2021-05-17, Sentiment: -0.13
+Date: 2019-03-17, Sentiment: -0.13</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-23.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2022-04-10, Sentiment: 0.58
+Date: 2019-12-25, Sentiment: 0.55
+Date: 2019-12-29, Sentiment: 0.52
+Date: 2019-01-16, Sentiment: 0.51
+Date: 2021-12-04, Sentiment: 0.51
+Date: 2021-12-24, Sentiment: 0.50
+Date: 2018-12-25, Sentiment: 0.50
+Date: 2022-01-29, Sentiment: 0.49
+Date: 2021-09-21, Sentiment: 0.48
+Date: 2021-12-05, Sentiment: 0.47
+
+Bottom Points:
+Date: 2020-05-08, Sentiment: -0.17
+Date: 2021-01-06, Sentiment: -0.16
+Date: 2021-02-16, Sentiment: -0.15
+Date: 2021-10-11, Sentiment: -0.15
+Date: 2021-10-17, Sentiment: -0.14
+Date: 2020-10-08, Sentiment: -0.14
+Date: 2021-04-04, Sentiment: -0.13
+Date: 2021-03-22, Sentiment: -0.11
+Date: 2021-04-18, Sentiment: -0.11
+Date: 2021-05-19, Sentiment: -0.11</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-25.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2019-06-21, Sentiment: 0.52
+Date: 2019-05-12, Sentiment: 0.34
+Date: 2018-12-29, Sentiment: 0.33
+Date: 2019-02-23, Sentiment: 0.32
+Date: 2018-12-30, Sentiment: 0.31
+Date: 2018-11-23, Sentiment: 0.31
+Date: 2019-01-03, Sentiment: 0.31
+Date: 2019-01-23, Sentiment: 0.31
+Date: 2019-04-24, Sentiment: 0.31
+Date: 2018-12-01, Sentiment: 0.30
+
+Bottom Points:
+Date: 2021-07-12, Sentiment: -0.28
+Date: 2021-06-28, Sentiment: -0.22
+Date: 2021-07-13, Sentiment: -0.20
+Date: 2021-07-14, Sentiment: -0.18
+Date: 2022-04-03, Sentiment: -0.16
+Date: 2022-04-13, Sentiment: -0.15
+Date: 2022-04-15, Sentiment: -0.14
+Date: 2022-03-29, Sentiment: -0.14
+Date: 2022-05-16, Sentiment: -0.14
+Date: 2021-05-17, Sentiment: -0.13</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-6-output-27.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+Date: 2018-12-25, Sentiment: 0.50
+Date: 2019-03-19, Sentiment: 0.48
+Date: 2021-12-04, Sentiment: 0.47
+Date: 2018-11-23, Sentiment: 0.43
+Date: 2019-12-25, Sentiment: 0.41
+Date: 2020-06-21, Sentiment: 0.41
+Date: 2021-12-05, Sentiment: 0.41
+Date: 2019-08-02, Sentiment: 0.40
+Date: 2020-01-13, Sentiment: 0.40
+Date: 2019-01-16, Sentiment: 0.40
+
+Bottom Points:
+Date: 2019-06-02, Sentiment: -0.14
+Date: 2021-02-16, Sentiment: -0.13
+Date: 2020-12-18, Sentiment: -0.09
+Date: 2020-12-19, Sentiment: -0.08
+Date: 2020-07-23, Sentiment: -0.08
+Date: 2021-04-18, Sentiment: -0.07
+Date: 2021-03-13, Sentiment: -0.07
+Date: 2021-01-06, Sentiment: -0.06
+Date: 2020-12-09, Sentiment: -0.03
+Date: 2021-03-16, Sentiment: -0.03</code></pre>
+</div>
+</div>
+<p>Here a version without the outliers for better visibility.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> president <span class="kw">in</span> presidents:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get sentiment development regardless of location</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> pd.read_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">.pkl'</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    data, daily_sentiment <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    average_compound <span class="op">=</span> get_compound_mean(data)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    top_points, bottom_points <span class="op">=</span> plot_sentiment_with_highlights_and_timeframes(daily_sentiment,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                                            title <span class="op">=</span> <span class="ss">f'Daily Mean Compound Sentiment Score for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                                            colors<span class="op">=</span>colors,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                                            average_compound<span class="op">=</span>average_compound,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                                            mean_location<span class="op">=</span>mean_compound.at[<span class="st">'All'</span>,<span class="st">'Total'</span>],</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                                            num_top_points<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>                                            num_bottom_points<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>                                            save_path<span class="op">=</span><span class="ss">f'visualizations/compound_sentiment/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> president <span class="kw">in</span> presidents:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get sentiment development regardless of location</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> pd.read_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">.pkl'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    data, daily_sentiment <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    average_compound <span class="op">=</span> get_compound_mean(data)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    top_points, bottom_points <span class="op">=</span> plot_sentiment_with_highlights_and_timeframes(daily_sentiment,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                                            title <span class="op">=</span> <span class="ss">f'Daily Mean Compound Sentiment Score for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>                                            colors<span class="op">=</span>colors,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                                            average_compound<span class="op">=</span>average_compound,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                                            mean_location<span class="op">=</span>mean_compound.at[<span class="st">'All'</span>,<span class="st">'Total'</span>],</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>                                            num_top_points<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>                                            num_bottom_points<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>                                            save_path<span class="op">=</span><span class="ss">f'visualizations/compound_sentiment/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">.png'</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    print_outliers(top_points, bottom_points)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get location-specific sentiment development</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> location <span class="kw">in</span> (cities <span class="op">+</span> countries):</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="ss">f'Daily Mean Compound Sentiment Score for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> in </span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        filepath <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">.pkl'</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> pd.read_pickle(filepath)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>        data, daily_sentiment <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>        average_compound <span class="op">=</span> get_compound_mean(data)</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>        plot_sentiment_with_highlights_and_timeframes(daily_sentiment,</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>                                                title,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>                                                colors<span class="op">=</span>colors,</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>                                                average_compound<span class="op">=</span>average_compound,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>                                                mean_location<span class="op">=</span>mean_compound.at[<span class="st">'All'</span>,location],</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>                                                num_top_points<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>                                                num_bottom_points<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>                                                save_path<span class="op">=</span><span class="ss">f'visualizations/compound_sentiment/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+
+Bottom Points:</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-6.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-7.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-8.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-9.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Top Points:
+
+Bottom Points:</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-11.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-12.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-13.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-14.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-15.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-8-output-16.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="sentiment-observations-and-abnormalities" class="level4">
+<h4 class="anchored" data-anchor-id="sentiment-observations-and-abnormalities">Sentiment Observations and Abnormalities</h4>
+<p><strong>Donald Trump</strong> Overall - variance - little higher variance from January 2021 until July 2022 -&gt; lower post count makes it more susceptible to variance - reaction: almost always the same development in sentiment score -&gt; similar reaction to events. GB reaction is a little stronger; this variance is explained with a smaller dataset. Take higher baseline of GB into consideration - outliers - peaks: - 2021-06-13 - 2021-06-14: mean sentiment score 0.21 - 2021-10-03: sentiment score 0.15 - 2020-06-14: sentiment score 0.15 - christmas and new year should not be evaluated: - 2019-12-25: sentiment score 0.11 - 2022-01-01, Sentiment: 0.11 - 2021-12-30, Sentiment: 0.10 - low points: - 2019-08-04 - 2019-08-05: mean sentiment score mean -0.22 - 2018-10-25: mean sentiment score -0.18 - 2020-06-01: mean sentiment score -0.18 - 2020-01-05: mean sentiment score -0.18</p>
+<p>Countries - baseline - Trump has a higher baseline in Britain than in the US and vice versa for Johnson in the US -&gt; presidents are more popular in other countries vs.&nbsp;their own one -&gt; Johnson viewed more favorably in the US due to less direct impact on the lives of the American public -&gt; less critical perspective - variance - Trump has a higher variance in Britain than in the US and vice versa for Johnson in the US than Johnson. Possible explanation: less data about the political leader in the other country - US and overall almost identical for trump - outliers: same in both countries due to similar reactions - only US does not have the peak in 2021-06-14 - 2020-01-05 GB has a strong negative reaction (sentiment score of -0.31), which is not the case in the US</p>
+<ul>
+<li>no reason found:
+<ul>
+<li>The specific events causing the missing peak in the US on June 14, 2021, and the strong negative reaction in Britain on January 5, 2020, are not identified within the available data.</li>
+</ul></li>
+</ul>
+<p>Cities - The overall sentiments in Great Britain and the US also differ, emphasizing how national contexts shape public perception. - NYC and LA very similar, especially the end of 2020 - London and Birmingham are also similar considering the latter’s high variance - outliers - in LA on 2020-12-27, Trump has a mean sentiment score of 0.12, but on the next day it is -0.28.</p>
+<p><strong>Boris Johnson</strong> Overall - outliers - peaks - all significant peaks are (from 2018-11-21) until 2019-06-21 - the lowest point comprise the following data point: - 2019-06-21: sentiment score 0.50 - other events - 2018-11-23: sentiment score 0.36 - 2018-11-21: sentiment score 0.32 - 2019-03-19: sentiment score 0.32 - 2019-01-31: sentiment score 0.29 - 2018-12-30: sentiment score 0.29 - 2019-01-11: sentiment score 0.28 - 2019-04-24: sentiment score 0.28 - 2019-05-12: sentiment score 0.28 - 2019-01-16: sentiment score 0.28 - low points - all significant low points are since 2020-11-20 (and until 2022-04-13) - the lowest point comprise the following data points: - 2021-07-12 - 2021-07-14: mean sentiment score -0.17 - other events - 2021-06-28: sentiment score -0.19</p>
+<pre><code>- no explanation found:
+    - Further investigation is needed to determine the reason for the sentiment peak on June 14, 2021.
+    - The exact events influencing the low sentiment scores on October 25, 2018, and June 1, 2020, remain unidentified within the available data.</code></pre>
+<p>Countries - baseline: - it is unusual that Johnson is on average more popular than the general mean post in the US (with a mean sentiment score of 0.17 versus the 0.15 of the US). This is both the case for LA and NYC.<br>
+- outliers</p>
+<pre><code>- phases
+    - positive sentiment
+        - GB has a positive view on Johnson from 2018-11-23 until 2019-06-21. What events happened here, especially on the days: 2019-06-21, 2019-05-12, 2018-12-29, 2019-02-23, 2018-12-30, 2018-11-23, 2019-01-03, 2019-01-23, 2019-04-24, 2018-12-01? 
+
+    - negative sentiment
+        - US has a negative perception on Johnson from 2020-12-09 to 2021-04-18
+        - GB a negative perception on Johnson from 2021-05-17 - 2021-07-14 (what happened in that timespan, especially on the days of 2021-07-12, 2021-06-28, 2021-07-13, 2021-07-14, 2021-05-17?)
+        - GB a negative perception on Johnson from 2022-03-29 - 2022-05-16 (what happened in that timespan, especially on the days of 2022-04-03, 2022-04-13, 2022-04-15, 2022-03-29, 2022-05-16?)
+
+- it is odd that at a similar time, there is peak in GB and a low point in the US: 
+    - In GB there is a strong peak on 2019-06-21 (with a sentiment score of 0.52) and in the US there is a low point on 2019-06-02 (with a mean sentiment score of -0.14). Are these dates correlated? Find possible explanations for it.
+- peaks
+    - In US 2021-12-04 - 2021-12-05 with a mean sentiment score of 0.44
+- low points
+    - near 2021-02 sentiment score of -0.2 in US
+what happened at these outliers?</code></pre>
+<p>Cities - All cities of the same country and are characterized by a similar sentiment baseline and development - Birmingham and London - variance: both have a stronger variance until 2019-07 - Birmingham has a sudden shift of sentiment from 2020-01-10 with a sentiment score of 0.52 to the following day to -0.41 - outliers - peaks - Birmingham has a peak of sentiment on 2021-02-18 with a sentiment score of 0.55 - low point - Only LA has a low point of -0.14 on 2019-06-02 -&gt; responsible for US sentiment there</p>
+<p><strong>Comparison of Presidents</strong> - variance: surprising that Trump has a relatively small variance. trump controversial political figure could have more fluctuation -&gt; compound sentiment of his followers and the opposing group cancel out because of mean calculation - baseline: Johnson has a slightly higher mean compound sentiment score - Trump: US (-0.06) GB (0.02) - Johnson: US (0.03) GB (0.17) - Presidents significantly below general mean sentiment score (MSS) -&gt; Scrutinous and negative media coverage creating; Controversial policies having a negative impact on people’s lives; Political scandals or legal issues</p>
+<p><strong>Comparison of Location Baselines</strong> Countries - GB has a higher baseline: GB 0.23 and US 0.15 - US is more negative than GB - reasons - cultural differences in expression: Americans more direct -&gt; easier for algorithm to detect negativity - politics: US political division &amp; intensity of political climate -&gt; more critical view of both domestic and international politicians</p>
+<p>Cities - cities in the same country similar: LA (0.16) NYC (0.14) London (0.23) Birmingham (0.24). Considering the public perception on the presidents, especially NYC and LA have a very similar mean sentiments (Mean Compound Sentiment by City.png) - reasons - major urban centers, heavily influenced by national media narratives - nationwide issues or perceptions of these leaders overshadow local concerns -&gt; uniform sentiment across different urban centers - political views do not completely align in BI &amp; LO: Birmingham more rural than London (not a city of over a million inhabitants)</p>
+</section>
+</section>
+<section id="aggregated-post-count" class="level1">
+<h1>Aggregated Post Count</h1>
+<p>Method: 1. Data Aggregation: Aggregate the data into daily counts with <code>aggregate_tweet_count()</code> 2.</p>
+<section id="data-aggregation" class="level5">
+<h5 class="anchored" data-anchor-id="data-aggregation">Data Aggregation</h5>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aggregate_daily_counts(df, date_column<span class="op">=</span><span class="st">'day'</span>):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Aggregate the total count of rows for each day in a dataframe.</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    df (DataFrame): The original dataframe with a 'day' column.</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">    date_column (str): The name of the column containing the dates. Defaults to 'day'.</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">    DataFrame: A new dataframe with columns 'day' and 'tweet_count', representing the count of rows per day.</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.groupby(date_column).size().reset_index(name<span class="op">=</span><span class="st">'tweet_count'</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aggregate_tweet_count(president):</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    daily_tweet_counts <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>[<span class="st">'day'</span>, <span class="st">'All'</span>] <span class="op">+</span> countries <span class="op">+</span> cities)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> location <span class="kw">in</span> countries <span class="op">+</span> cities:</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># load data</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        filepath <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>location<span class="sc">}</span><span class="ss">.pkl'</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> pd.read_pickle(filepath)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># add day</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        data, _ <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># aggregate day to get daily post count</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>        aggregated_data <span class="op">=</span> aggregate_daily_counts(data)</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        daily_tweet_counts[location] <span class="op">=</span> aggregated_data[<span class="st">'tweet_count'</span>]</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    daily_tweet_counts[<span class="st">'day'</span>] <span class="op">=</span> aggregated_data[<span class="st">'day'</span>]</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    daily_tweet_counts.set_index(<span class="st">'day'</span>)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate 'All'</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    filepath <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}{</span>president<span class="sc">}</span><span class="ss">.pkl'</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> pd.read_pickle(filepath)</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>    data, _ <span class="op">=</span> add_day_and_get_daily_sentiment(data)</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>    aggregated_data <span class="op">=</span> aggregate_daily_counts(data)</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>    daily_tweet_counts[<span class="st">'All'</span>] <span class="op">=</span> aggregated_data[<span class="st">'tweet_count'</span>]</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> daily_tweet_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aggregate daily tweets for both presidents</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_trump <span class="op">=</span> aggregate_tweet_count(presidents[<span class="dv">0</span>])</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_johnson <span class="op">=</span> aggregate_tweet_count(presidents[<span class="dv">1</span>])</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># save data</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_trump.to_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}</span><span class="ss">daily_tweet_counts_trump.pkl'</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_johnson.to_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}</span><span class="ss">daily_tweet_counts_johnson.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Save the numer of days for <code>get_mean_tweets_per_day()</code> in <code>./data_overview.ipynb</code></p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> get_mean_count <span class="im">import</span> save_results</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>number_of_days <span class="op">=</span> {<span class="st">"number_of_days"</span>: daily_tweet_counts_trump.shape[<span class="dv">0</span>]}</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>save_results(number_of_days, <span class="st">'results/number_of_days.json'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results saved to results/number_of_days.json</code></pre>
+</div>
+</div>
+<p>Inspect data to verify data quality</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_trump.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>day</th>
+      <th>All</th>
+      <th>Great Britain</th>
+      <th>US</th>
+      <th>Birmingham</th>
+      <th>LA</th>
+      <th>London</th>
+      <th>NYC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-08-01</td>
+      <td>2069</td>
+      <td>191</td>
+      <td>1878</td>
+      <td>15.0</td>
+      <td>969</td>
+      <td>176</td>
+      <td>909</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-08-02</td>
+      <td>1724</td>
+      <td>161</td>
+      <td>1563</td>
+      <td>18.0</td>
+      <td>736</td>
+      <td>143</td>
+      <td>827</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-08-03</td>
+      <td>1400</td>
+      <td>146</td>
+      <td>1254</td>
+      <td>14.0</td>
+      <td>623</td>
+      <td>132</td>
+      <td>631</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-08-04</td>
+      <td>2258</td>
+      <td>188</td>
+      <td>2070</td>
+      <td>18.0</td>
+      <td>1243</td>
+      <td>170</td>
+      <td>827</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-08-05</td>
+      <td>1815</td>
+      <td>197</td>
+      <td>1618</td>
+      <td>27.0</td>
+      <td>807</td>
+      <td>170</td>
+      <td>811</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_johnson.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>day</th>
+      <th>All</th>
+      <th>Great Britain</th>
+      <th>US</th>
+      <th>Birmingham</th>
+      <th>LA</th>
+      <th>London</th>
+      <th>NYC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-08-01</td>
+      <td>154</td>
+      <td>89</td>
+      <td>65</td>
+      <td>24</td>
+      <td>39</td>
+      <td>65</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-08-02</td>
+      <td>149</td>
+      <td>57</td>
+      <td>92</td>
+      <td>10</td>
+      <td>53</td>
+      <td>47</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-08-03</td>
+      <td>126</td>
+      <td>46</td>
+      <td>80</td>
+      <td>7</td>
+      <td>51</td>
+      <td>39</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-08-04</td>
+      <td>125</td>
+      <td>59</td>
+      <td>66</td>
+      <td>12</td>
+      <td>41</td>
+      <td>47</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-08-05</td>
+      <td>137</td>
+      <td>58</td>
+      <td>79</td>
+      <td>17</td>
+      <td>28</td>
+      <td>41</td>
+      <td>51</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_daily_tweet_counts(post_counts, title, count_columns, colors<span class="op">=</span>colors, timeframe<span class="op">=</span><span class="va">None</span>, save_path<span class="op">=</span><span class="va">None</span>, highlight_top_ten<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Plot the daily post counts for multiple series with a modern design, including options for highlights and timeframes. Highlights the top ten post counts for each series.</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">    post_counts (DataFrame): Data containing the daily post counts with columns 'day' and multiple 'tweet_count_X' columns.</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">    title (str): The title of the plot.</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co">    count_columns (list): List of column names containing the post counts to be plotted.</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">    colors (list, optional): Colors for the post count lines. If None, default colors will be used.</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">    timeframe (tuple of str/datetime, optional): A timeframe to highlight on the plot.</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co">    save_path (str, optional): Path to save the figure.</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight_top_ten (bool, optional): Whether to highlight the top ten post counts.</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">8</span>))</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> colors <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        colors <span class="op">=</span> sns.color_palette(<span class="st">'husl'</span>, <span class="bu">len</span>(count_columns))  <span class="co"># Generate as many colors as count columns</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot each post count linedaily_tweet_counts_trump</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, count_column <span class="kw">in</span> <span class="bu">enumerate</span>(count_columns):</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        sns.lineplot(x<span class="op">=</span><span class="st">'day'</span>, y<span class="op">=</span>count_column, data<span class="op">=</span>post_counts, color<span class="op">=</span>colors[i], label<span class="op">=</span>count_column)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> highlight_top_ten:</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Sort the DataFrame by 'tweet_count' column in descending order and take the top ten</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>            top_ten_post_counts <span class="op">=</span> post_counts.sort_values(by<span class="op">=</span>count_column, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">10</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Highlight the top ten post counts</span></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> _, row <span class="kw">in</span> top_ten_post_counts.iterrows():</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>                point_datetime <span class="op">=</span> pd.to_datetime(row[<span class="st">'day'</span>])</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>                tweet_count_at_point <span class="op">=</span> row[count_column]</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>                plt.scatter(point_datetime, tweet_count_at_point, color<span class="op">=</span>colors[i], s<span class="op">=</span><span class="dv">50</span>, zorder<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Adjusted text positioning</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>                text_x_position <span class="op">=</span> point_datetime <span class="op">-</span> pd.Timedelta(days<span class="op">=-</span><span class="dv">10</span>)  <span class="co"># Adjust as needed for your specific date format and plot</span></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>                plt.text(text_x_position, tweet_count_at_point, <span class="ss">f"</span><span class="sc">{</span>row[<span class="st">'day'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="sc">{</span>tweet_count_at_point<span class="sc">}</span><span class="ss">"</span>, color<span class="op">=</span><span class="st">'black'</span>, ha<span class="op">=</span><span class="st">'left'</span>, va<span class="op">=</span><span class="st">'bottom'</span>)</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Highlight the timeframe</span></span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> timeframe:</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>        plt.axvspan(pd.to_datetime(timeframe[<span class="dv">0</span>]), pd.to_datetime(timeframe[<span class="dv">1</span>]), color<span class="op">=</span><span class="st">'yellow'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, label<span class="op">=</span><span class="st">'Highlighted Period'</span>)</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Post Count'</span>)</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>    sns.despine()</span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> save_path:</span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>        plt.savefig(save_path, <span class="bu">format</span><span class="op">=</span><span class="st">'png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> president <span class="kw">in</span> presidents:</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> daily_tweet_counts_trump <span class="cf">if</span> president <span class="op">==</span> presidents[<span class="dv">0</span>] <span class="cf">else</span> daily_tweet_counts_johnson</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    plot_daily_tweet_counts(</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>        post_counts<span class="op">=</span>data,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Daily Post Counts for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        count_columns<span class="op">=</span>[<span class="st">'All'</span>],</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        save_path<span class="op">=</span><span class="ss">f'visualizations/tweet_count/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-tweet_count.png'</span>  </span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    plot_daily_tweet_counts(</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        post_counts<span class="op">=</span>data,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Daily Post Counts for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> per Country"</span>,</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        count_columns<span class="op">=</span>countries,</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>        save_path<span class="op">=</span><span class="ss">f'visualizations/tweet_count/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-countries-tweet_count.png'</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    plot_daily_tweet_counts(</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>        post_counts<span class="op">=</span>data,</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Daily Post Counts for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> per City"</span>,</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        count_columns<span class="op">=</span>cities,</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>        save_path<span class="op">=</span><span class="ss">f'visualizations/tweet_count/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-cities-tweet_count.png'</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-15-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-15-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-15-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-15-output-6.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="normalize-daily-post-count" class="level5">
+<h5 class="anchored" data-anchor-id="normalize-daily-post-count">Normalize Daily Post Count</h5>
+<p>Normalize the daily post count by dividing with the monthly post count</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>monthly_tweet_count <span class="op">=</span> pd.read_pickle(<span class="st">'results/monthly_tweet_count.pkl'</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>monthly_tweet_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>2018_08</th>
+      <th>2018_09</th>
+      <th>2018_10</th>
+      <th>2018_11</th>
+      <th>2018_12</th>
+      <th>2019_01</th>
+      <th>2019_02</th>
+      <th>2019_03</th>
+      <th>2019_04</th>
+      <th>2019_05</th>
+      <th>...</th>
+      <th>2021_09</th>
+      <th>2021_10</th>
+      <th>2021_11</th>
+      <th>2021_12</th>
+      <th>2022_01</th>
+      <th>2022_02</th>
+      <th>2022_03</th>
+      <th>2022_04</th>
+      <th>2022_05</th>
+      <th>2022_06</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Birmingham</th>
+      <td>191433.0</td>
+      <td>191579.0</td>
+      <td>210056.0</td>
+      <td>196021.0</td>
+      <td>191220.0</td>
+      <td>192694.0</td>
+      <td>180492.0</td>
+      <td>176343.0</td>
+      <td>171053.0</td>
+      <td>189581.0</td>
+      <td>...</td>
+      <td>117748.0</td>
+      <td>115224.0</td>
+      <td>115670.0</td>
+      <td>120246.0</td>
+      <td>92343.0</td>
+      <td>83309.0</td>
+      <td>101421.0</td>
+      <td>108992.0</td>
+      <td>125573.0</td>
+      <td>123247.0</td>
+    </tr>
+    <tr>
+      <th>LA</th>
+      <td>1171088.0</td>
+      <td>1154324.0</td>
+      <td>1231818.0</td>
+      <td>1112827.0</td>
+      <td>1081696.0</td>
+      <td>1181323.0</td>
+      <td>1086208.0</td>
+      <td>925107.0</td>
+      <td>965585.0</td>
+      <td>1000215.0</td>
+      <td>...</td>
+      <td>619445.0</td>
+      <td>661769.0</td>
+      <td>605353.0</td>
+      <td>587364.0</td>
+      <td>419469.0</td>
+      <td>441942.0</td>
+      <td>551023.0</td>
+      <td>561438.0</td>
+      <td>626102.0</td>
+      <td>627947.0</td>
+    </tr>
+    <tr>
+      <th>London</th>
+      <td>788735.0</td>
+      <td>823528.0</td>
+      <td>852263.0</td>
+      <td>825937.0</td>
+      <td>788404.0</td>
+      <td>833817.0</td>
+      <td>761305.0</td>
+      <td>745724.0</td>
+      <td>701682.0</td>
+      <td>779578.0</td>
+      <td>...</td>
+      <td>468218.0</td>
+      <td>485879.0</td>
+      <td>464786.0</td>
+      <td>467816.0</td>
+      <td>354041.0</td>
+      <td>330898.0</td>
+      <td>399953.0</td>
+      <td>411581.0</td>
+      <td>485100.0</td>
+      <td>473426.0</td>
+    </tr>
+    <tr>
+      <th>NYC</th>
+      <td>1038041.0</td>
+      <td>1077902.0</td>
+      <td>1118985.0</td>
+      <td>1012020.0</td>
+      <td>984489.0</td>
+      <td>1008954.0</td>
+      <td>911139.0</td>
+      <td>817539.0</td>
+      <td>844749.0</td>
+      <td>891154.0</td>
+      <td>...</td>
+      <td>610744.0</td>
+      <td>610459.0</td>
+      <td>582877.0</td>
+      <td>574649.0</td>
+      <td>423957.0</td>
+      <td>404103.0</td>
+      <td>518088.0</td>
+      <td>505101.0</td>
+      <td>561737.0</td>
+      <td>602978.0</td>
+    </tr>
+    <tr>
+      <th>Great Britain</th>
+      <td>980168.0</td>
+      <td>1015107.0</td>
+      <td>1062319.0</td>
+      <td>1021958.0</td>
+      <td>979624.0</td>
+      <td>1026511.0</td>
+      <td>941797.0</td>
+      <td>922067.0</td>
+      <td>872735.0</td>
+      <td>969159.0</td>
+      <td>...</td>
+      <td>585966.0</td>
+      <td>601103.0</td>
+      <td>580456.0</td>
+      <td>588062.0</td>
+      <td>446384.0</td>
+      <td>414207.0</td>
+      <td>501374.0</td>
+      <td>520573.0</td>
+      <td>610673.0</td>
+      <td>596673.0</td>
+    </tr>
+    <tr>
+      <th>US</th>
+      <td>2209129.0</td>
+      <td>2232226.0</td>
+      <td>2350803.0</td>
+      <td>2124847.0</td>
+      <td>2066185.0</td>
+      <td>2190277.0</td>
+      <td>1997347.0</td>
+      <td>1742646.0</td>
+      <td>1810334.0</td>
+      <td>1891369.0</td>
+      <td>...</td>
+      <td>1230189.0</td>
+      <td>1272228.0</td>
+      <td>1188230.0</td>
+      <td>1162013.0</td>
+      <td>843426.0</td>
+      <td>846045.0</td>
+      <td>1069111.0</td>
+      <td>1066539.0</td>
+      <td>1187839.0</td>
+      <td>1230925.0</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>3189297.0</td>
+      <td>3247333.0</td>
+      <td>3413122.0</td>
+      <td>3146805.0</td>
+      <td>3045809.0</td>
+      <td>3216788.0</td>
+      <td>2939144.0</td>
+      <td>2664713.0</td>
+      <td>2683069.0</td>
+      <td>2860528.0</td>
+      <td>...</td>
+      <td>1816155.0</td>
+      <td>1873331.0</td>
+      <td>1768686.0</td>
+      <td>1750075.0</td>
+      <td>1289810.0</td>
+      <td>1260252.0</td>
+      <td>1570485.0</td>
+      <td>1587112.0</td>
+      <td>1798512.0</td>
+      <td>1827598.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 47 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>countries <span class="op">+</span> cities <span class="op">+</span> [<span class="st">'All'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>['Great Britain', 'US', 'Birmingham', 'LA', 'London', 'NYC', 'All']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize_daily_tweet_counts(daily_tweet_counts):</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert the 'day' column in daily_tweet_counts to datetime to easily extract year and month</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    daily_tweet_counts[<span class="st">'day'</span>] <span class="op">=</span> pd.to_datetime(daily_tweet_counts[<span class="st">'day'</span>])</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each location, normalize the daily post count</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    locations <span class="op">=</span> countries <span class="op">+</span> cities <span class="op">+</span> [<span class="st">'All'</span>]</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> location <span class="kw">in</span> locations:</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Apply normalization for each row</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        daily_tweet_counts[location] <span class="op">=</span> daily_tweet_counts.<span class="bu">apply</span>(<span class="kw">lambda</span> row: normalize_row(row, location), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> daily_tweet_counts</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize_row(row, location):</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract year and month from the 'day' column</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    year_month <span class="op">=</span> row[<span class="st">'day'</span>].strftime(<span class="st">'%Y_%m'</span>)</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lookup the monthly post count for the location</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>    monthly_count <span class="op">=</span> monthly_tweet_count.loc[location, year_month]</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return the normalized daily count</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row[location] <span class="op">/</span> monthly_count <span class="cf">if</span> monthly_count <span class="cf">else</span> row[location]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># normalize data with normalize_daily_tweet_counts</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>normalized_daily_tweet_counts_trump <span class="op">=</span> normalize_daily_tweet_counts(daily_tweet_counts_trump)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>normalized_daily_tweet_counts_johnson <span class="op">=</span> normalize_daily_tweet_counts(daily_tweet_counts_johnson)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> daily_tweet_counts_trump, daily_tweet_counts_johnson</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># save data</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>normalized_daily_tweet_counts_trump.to_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}</span><span class="ss">normalized_daily_tweet_counts_trump.pkl'</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>normalized_daily_tweet_counts_johnson.to_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}</span><span class="ss">normalized_daily_tweet_counts_johnson.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>normalized_daily_tweet_counts_trump.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>day</th>
+      <th>All</th>
+      <th>Great Britain</th>
+      <th>US</th>
+      <th>Birmingham</th>
+      <th>LA</th>
+      <th>London</th>
+      <th>NYC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-08-01</td>
+      <td>0.000649</td>
+      <td>0.000195</td>
+      <td>0.000850</td>
+      <td>0.000078</td>
+      <td>0.000827</td>
+      <td>0.000223</td>
+      <td>0.000876</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-08-02</td>
+      <td>0.000541</td>
+      <td>0.000164</td>
+      <td>0.000708</td>
+      <td>0.000094</td>
+      <td>0.000628</td>
+      <td>0.000181</td>
+      <td>0.000797</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-08-03</td>
+      <td>0.000439</td>
+      <td>0.000149</td>
+      <td>0.000568</td>
+      <td>0.000073</td>
+      <td>0.000532</td>
+      <td>0.000167</td>
+      <td>0.000608</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-08-04</td>
+      <td>0.000708</td>
+      <td>0.000192</td>
+      <td>0.000937</td>
+      <td>0.000094</td>
+      <td>0.001061</td>
+      <td>0.000216</td>
+      <td>0.000797</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-08-05</td>
+      <td>0.000569</td>
+      <td>0.000201</td>
+      <td>0.000732</td>
+      <td>0.000141</td>
+      <td>0.000689</td>
+      <td>0.000216</td>
+      <td>0.000781</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> president <span class="kw">in</span> presidents:</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> normalized_daily_tweet_counts_trump <span class="cf">if</span> president <span class="op">==</span> presidents[<span class="dv">0</span>] <span class="cf">else</span> normalized_daily_tweet_counts_johnson</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    plot_daily_tweet_counts(</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>        post_counts<span class="op">=</span>data,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Normalized Daily Post Counts for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>        count_columns<span class="op">=</span>[<span class="st">'All'</span>],</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>        save_path<span class="op">=</span><span class="ss">f'visualizations/tweet_count/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-normalized_tweet_count.png'</span>  </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    plot_daily_tweet_counts(</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>        post_counts<span class="op">=</span>data,</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Normalized Daily Post Counts for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> per Country"</span>,</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>        count_columns<span class="op">=</span>countries,</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>        save_path<span class="op">=</span><span class="ss">f'visualizations/tweet_count/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-countries-normalized_tweet_count.png'</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    plot_daily_tweet_counts(</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>        post_counts<span class="op">=</span>data,</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f"Normalized Daily Post Counts for </span><span class="sc">{</span>president<span class="sc">.</span>capitalize()<span class="sc">}</span><span class="ss"> per City"</span>,</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>        count_columns<span class="op">=</span>cities,</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>        save_path<span class="op">=</span><span class="ss">f'visualizations/tweet_count/</span><span class="sc">{</span>president<span class="sc">}</span><span class="ss">-cities-normalized_tweet_count.png'</span></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-21-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-21-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-21-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-21-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="analysis_events_files/figure-html/cell-21-output-6.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="interpretation-post-count" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-post-count">Interpretation Post Count</h3>
+<section id="absolute-values" class="level5">
+<h5 class="anchored" data-anchor-id="absolute-values">Absolute Values</h5>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_top_dates(df, column, nlargest<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Get the rows corresponding to the highest 10 values of a specified column in a DataFrame.</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">    df (DataFrame): The DataFrame containing the data.</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">    column (str): The name of the column to find the top 10 values in.</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="co">    DataFrame: A DataFrame containing the rows with the top 10 values of the specified column.</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.nlargest(nlargest, column)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_top_ten_days(data, president):</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> location <span class="kw">in</span> countries <span class="op">+</span> cities:</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(president.capitalize(), location)</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(get_top_dates(data, location)[[<span class="st">'day'</span>, location]].to_string(index<span class="op">=</span><span class="va">False</span>),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get original post data because it was previously normalized</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_trump <span class="op">=</span> pd.read_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}</span><span class="ss">daily_tweet_counts_trump.pkl'</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>daily_tweet_counts_johnson <span class="op">=</span> pd.read_pickle(<span class="ss">f'</span><span class="sc">{</span>data_path<span class="sc">}</span><span class="ss">daily_tweet_counts_johnson.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>get_top_ten_days(daily_tweet_counts_trump, presidents[<span class="dv">0</span>])</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>get_top_ten_days(daily_tweet_counts_johnson, presidents[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Trump Great Britain
+       day  Great Britain
+2020-11-07           3036
+2020-11-06           2000
+2020-11-04           1994
+2021-01-06           1680
+2019-06-03           1636
+2019-06-04           1510
+2020-11-05           1334
+2020-11-08           1334
+2021-01-07           1126
+2021-01-08            888 
+
+Trump US
+       day   US
+2020-09-30 9564
+2020-11-07 8256
+2021-01-06 6551
+2020-11-06 6198
+2020-10-02 5841
+2020-11-04 5767
+2020-10-23 5301
+2021-01-07 5001
+2020-11-05 4538
+2020-11-08 4470 
+
+Trump Birmingham
+       day  Birmingham
+2020-11-07       477.0
+2020-11-06       327.0
+2020-11-04       314.0
+2021-01-06       269.0
+2019-06-03       255.0
+2020-11-05       227.0
+2019-06-04       223.0
+2020-11-08       217.0
+2021-01-07       172.0
+2021-01-20       140.0 
+
+Trump LA
+       day   LA
+2020-09-30 4685
+2020-11-07 4352
+2020-11-06 3384
+2020-10-02 3260
+2021-01-06 3259
+2020-11-04 3147
+2020-10-23 2535
+2021-01-07 2510
+2020-11-05 2315
+2020-06-01 2274 
+
+Trump London
+       day  London
+2020-11-07    2559
+2020-11-04    1680
+2020-11-06    1673
+2021-01-06    1411
+2019-06-03    1381
+2019-06-04    1287
+2020-11-08    1117
+2020-11-05    1107
+2021-01-07     954
+2021-01-08     775 
+
+Trump NYC
+       day  NYC
+2020-09-30 4879
+2020-11-07 3904
+2021-01-06 3292
+2020-11-06 2814
+2020-10-23 2766
+2020-11-04 2620
+2020-10-02 2581
+2021-01-07 2491
+2020-11-05 2223
+2020-11-08 2219 
+
+Johnson Great Britain
+       day  Great Britain
+2020-05-24           2463
+2019-07-23           1988
+2020-05-10           1898
+2020-05-25           1648
+2020-10-31           1556
+2020-04-06           1553
+2019-12-13           1526
+2019-07-24           1491
+2019-09-24           1460
+2022-06-06           1323 
+
+Johnson US
+       day  US
+2019-04-10 288
+2019-09-24 236
+2019-07-23 224
+2020-07-23 198
+2019-12-12 177
+2019-12-13 175
+2020-04-06 171
+2019-10-06 168
+2019-02-14 157
+2019-05-20 152 
+
+Johnson Birmingham
+       day  Birmingham
+2019-06-21         696
+2020-05-24         499
+2019-07-23         386
+2019-06-23         385
+2020-05-10         365
+2019-06-22         341
+2020-04-06         332
+2020-10-31         305
+2020-05-25         299
+2019-08-28         284 
+
+Johnson LA
+       day  LA
+2019-04-10 209
+2020-07-23 120
+2020-12-27 104
+2019-02-14 101
+2019-07-23  97
+2019-02-07  96
+2019-02-05  94
+2020-02-16  91
+2018-10-29  90
+2019-10-06  89 
+
+Johnson London
+       day  London
+2020-05-24    1964
+2019-07-23    1602
+2020-05-10    1533
+2020-05-25    1349
+2019-12-13    1277
+2019-09-24    1272
+2019-07-24    1251
+2020-10-31    1251
+2020-04-06    1221
+2019-12-12    1106 
+
+Johnson NYC
+       day  NYC
+2019-09-24  174
+2019-07-23  127
+2019-12-12  102
+2020-06-30  101
+2019-10-12   98
+2019-09-22   97
+2019-12-13   97
+2020-04-07   96
+2019-03-12   95
+2019-07-24   95 
+</code></pre>
+</div>
+</div>
+</section>
+<section id="non-normalized-clustered-high-post-frequency-dates" class="level5">
+<h5 class="anchored" data-anchor-id="non-normalized-clustered-high-post-frequency-dates">Non-Normalized Clustered High Post-Frequency Dates</h5>
+<p><strong>Donald Trump</strong></p>
+<p>✅ Overall 1. 2020-11-04 - 2020-11-08 (7761 + 5872 + 8198 + 11292 + 5804) 2. 2020-09-30 - 2020-10-02 (10210 + 6708) 3. 2021-01-06 - 2021-01-07 (8231 + 6127) 4. 2020-10-23 (5673)</p>
+<p>✅ GB 1. 2020-11-04 - 2020-11-08 (1994 + 1334 + 2000 + 3036 + 1334) 2. 2019-06-03 - 2019-06-04 (1636 + 1510) 3. 2021-01-06 - 2021-01-07 (1680 + 1126) 4. 2021-01-20 (888)</p>
+<p>✅ US 1. 2020-09-30 (9564) 2. 2020-11-04 - 2020-11-08 (5767 + 4538 + 6198 + 8256 + 4470) 3. 2021-01-06 - 2021-01-07 (6551 + 5001) 4. 2010-10-02 (5841) 5. 2020-10-23 (5301)</p>
+<p>✅ NYC 1. 2020-09-30 (4879) 2. 2020-11-04 - 2020-11-08 (2620 + 2223 + 2814 + 3904 + 2219) 3. 2021-01-06 - 2021-01-07 (3292 + 2491) 4. 2020-10-23 (2766) 5. 2010-10-02 (2581)</p>
+<p>✅ LA 1. 2020-09-30 - 2020-10-02 (4685 + 4685) 2. 2020-11-04 - 2020-11-07 (3147 + 2315 + 3384 + 4352) 3. 2021-01-06 - 2021-01-07 (3259 + 2510) 4. 2020-10-02 (3260) 5. 2020-10-23 (2535) 6. 2020-06-01 (2274)</p>
+<p>✅ London 1. 2020-11-04 - 2020-11-08 (1680 + 1107 + 1673 + 2559 + 1117) 2. 2021-01-06 - 2021-01-07 (1411 + 954) 3. 2019-06-03 - 2019-06-04 (1381 + 1287) 4. 2021-01-08 (775) - outlier</p>
+<p>✅ Birmingham 1. 2020-11-04 - 2020-11-07 (314 + 227 + 327 + 477) 2. 2021-01-06 - 2021-01-07 (269 + 172) 3. 2019-06-03 - 2019-06-04 (255 + 223) 4. 2020-11-08 (217) 5. 2021-01-20 (140)</p>
+<p><strong>Boris Johnson</strong></p>
+<p>✅ Overall 1. 2020-05-24 - 2020-05-25 (2526 + 1737) 2. 2019-07-23 - 2019-07-24 (2212 + 1637) 3. 2020-05-10 (1958) 4. 2020-04-06 (1724) 5. 2019-12-12 - 2019-12-13 (1492 + 1701) 6. 2019-09-24 (1646) 7. 2020-10-31 (1620)</p>
+<p>✅ GB 1. 2020-05-24 - 2020-05-25 (2463 + 1491) 2. 2019-07-23 - 2019-07-24 (1988 + 1637) 3. 2020-05-10 (1898) The rest is roughly on a similar level: 4. 2020-10-31 (1556) 5. 2020-04-06 (1553) 6. 2019-12-13 (1526) 7. 2019-09-24 (1460) 8. 2022-06-06 (1323)</p>
+<p>✅ US: completely different to GB. Different dates etc. 1. 2019-04-10 (288) 2. 2020-04-06 (171) 3. 2019-09-24 (236) 4. 2019-07-23 (224) 5. 2020-07-23 (198) 6. 2019-12-12 - 2019-12-13 (177 + 175) 7. 2019-10-06 (168) 8. 2019-02-14 (157) 9. 2019-05-20 (152)</p>
+<p>✅ LA 1. 2019-04-10 (209) 2. 2020-07-23 (120) 3. 2020-12-27 (104) 4. 2019-02-14 (101) 5. 2019-07-23 (97) 6. 2019-02-05 + 2019-02-07 (94 + 96) 7. 2020-02-16 (91) 8. 2018-10-29 (90) 9. 2019-10-06 (89)</p>
+<p>✅ Johnson NYC: US cities differ completely 1. 2019-09-22 + 2019-09-24 (97 + 174) 2. 2019-07-23 - 2019-07-24 (95 + 127) 3. 2019-12-12 - 2019-12-13 (102 + 97) 4. 2020-06-30 (101) 5. 2019-10-12 (98) 6. 2020-04-07 (96) 7. 2019-03-12 (95)</p>
+<p>✅ London 1. 2020-05-24 - 2020-05-25 (1964 + 1349) 2. 2019-07-23 (1602) 3. 2020-05-10 (1533) 4. 2019-12-13 (1277) 5. 2019-09-24 (1272) 6. 2019-07-24 (1251) 7. 2020-10-31 (1251) 8. 2020-04-06 (1221) 9. 2019-12-12 (1106)</p>
+<p>✅ Birmingham: 2019-06-21 - 2019-06-23 relevant in BI, but not in LO; 2019-09-24, 2019-07-24, 2020-04-06, 2019-12-12 in LO, but not BI 1. 2019-06-21 - 2019-06-23 (696 + 341 + 385) 2. 2020-05-24 - 2020-05-25 (499 + 299) 3. 2019-07-23 (386) 4. 2020-05-10 (365) 5. 2020-04-06 (332) 6. 2020-10-31 (305) 7. 2019-08-28 (284)</p>
+</section>
+<section id="post-count-observations-and-abnormalities" class="level5">
+<h5 class="anchored" data-anchor-id="post-count-observations-and-abnormalities">Post Count Observations and Abnormalities</h5>
+<p><strong>General</strong> - After one or at maximum 4 days (usually 1-2), Twitter does not talk about scandals as much <span class="math inline">\(\rightarrow\)</span> News seem to become irrelevant after a couple of days and then irrelevant after that - Birmingham has a higher variance (calc values or show bar graphs) than other cities -&gt; maybe because of smaller dataset</p>
+<p><strong>Donald Trump</strong></p>
+<p>Overall (trump-normalized_tweet_count.png) - peaks - 3 considerate peaks at the end of the presidency (20 January 2017 – 20 January 2021) (TODO: check exact numbers) 1. 2020-11-04 - 2020-11-08 (7761 + 5872 + 8198 + 11292 + 5804) 2. 2020-09-30 - 2020-10-02 (10210 + 6708) 3. 2021-01-06 - 2021-01-07 (8231 + 6127) - less significant peaks (not in thesis) 4. 2020-10-23 (5673) 5. optional TODO: check more than the 10 most significant days</p>
+<p>Countries (trump-countries-normalized_tweet_count.png) - US has a slightly higher baseline compared to GB (maybe because it is their president -&gt; TODO: CALC overall MEAN) - mostly the same outliers (= reaction to events), e. g. 2021-01-06 - 2021-01-07 - sometimes different intensity of reaction: - GB strong reaction 2019-06-03 - 2019-06-04 (and slightly less extreme in 2019-12), but no noticable difference in the the post count from the US. Same in 2022-07, but maybe because higher variance in GB because of smaller dataset - US stronger reaction (more posts) from 2020-11-04 - 2020-11-08 (attention: this is the day which has the highest non-normalized post count in GB, but not in US. Nevertheless, this is an observation in the normalized data)</p>
+<p>Cities (trump-cities-normalized_tweet_count.png) - primarily Birmingham is responsible for the GB peak in 2019-06-03 - 2019-06-04 and 2020-11-04 - 2020-11-08 - London is primarily responsible for the GB peak in 2021-01-06 - 2021-01-07 - very similar baseline of all cities (TODO: clip visualization at 7.5e-09 and check if i still think the same because the Birmingham peak could make the difference seem small) - NYC and LA are very similar; Birmingham has a slightly higher baseline than London (TODO: CALC MEAN BASELINE)</p>
+<p><strong>Boris Johnson</strong></p>
+<p>Overall (johnson-normalized_tweet_count.png) - more posts from 2019-06 - 2020-01 - many peaks: TODO: check what happened 1. 2020-05-24 - 2020-05-25 (2526 + 1737) 2. 2019-07-23 - 2019-07-24 (2212 + 1637) 3. 2020-05-10 (1958) 4. 2020-04-06 (1724) 5. 2019-12-12 - 2019-12-13 (1492 + 1701) 6. 2019-09-24 (1646) 7. 2020-10-31 (1620) more: check post 1400+ (not in thesis)</p>
+<p>Countries (johnson-countries-normalized_tweet_count.png) - US has few posts about Johnson; Only GB has a higher baseline and variance than US; GB is almost exclusively responsible for the overall post count about Johnson - Considering the non-normalized post counts, it is clear that the post count development in the US is completely different to the one in GB. - (not in thesis) TODO: check difference between overall and country because it looks unusual when you compare the non-normalized with the normalized one - Phases - Since 2021-11 until end of data: high variance and higher baseline in GB - 2019-07 - 2020-01 higher baseline (and 2020-04 - 2020-07) -&gt; covid lockdown?</p>
+<p>Cities (johnson-cities-normalized_tweet_count.png) - Birmingham significantly higher baseline (same as with president Trump) - LA &amp; NYC are very similar again (in US/larger city -&gt; national media more important) - In non-normalized graph (not in thesis): - US cities differ completely. Maybe normalization was too strong? - 2019-06-21 - 2019-06-23 relevant in BI, but not in LO; 2019-09-24, 2019-07-24, 2020-04-06, 2019-12-12 in LO, but not BI</p>
+</section>
+<section id="normalized-values" class="level5">
+<h5 class="anchored" data-anchor-id="normalized-values">Normalized Values</h5>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>get_top_ten_days(normalized_daily_tweet_counts_trump, presidents[<span class="dv">0</span>])</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>get_top_ten_days(normalized_daily_tweet_counts_johnson, presidents[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Trump Great Britain
+       day  Great Britain
+2020-11-07       0.003680
+2020-11-06       0.002424
+2020-11-04       0.002417
+2021-01-06       0.002168
+2019-06-03       0.001718
+2020-11-05       0.001617
+2020-11-08       0.001617
+2019-06-04       0.001586
+2021-01-07       0.001453
+2021-01-08       0.001146 
+
+Trump US
+       day       US
+2020-09-30 0.005352
+2020-11-07 0.004525
+2021-01-06 0.004229
+2020-11-06 0.003397
+2021-01-07 0.003228
+2020-11-04 0.003161
+2020-10-02 0.003120
+2020-10-23 0.002831
+2021-01-08 0.002605
+2020-11-05 0.002487 
+
+Trump Birmingham
+       day  Birmingham
+2020-11-07    0.003101
+2020-11-06    0.002126
+2020-11-04    0.002042
+2021-01-06    0.001774
+2020-11-05    0.001476
+2019-06-03    0.001438
+2020-11-08    0.001411
+2019-06-04    0.001258
+2021-01-07    0.001134
+2021-01-20    0.000923 
+
+Trump LA
+       day       LA
+2020-09-30 0.004928
+2020-11-07 0.004623
+2021-01-06 0.004125
+2020-11-06 0.003595
+2020-11-04 0.003343
+2020-10-02 0.003241
+2021-01-07 0.003177
+2021-01-08 0.002553
+2020-10-23 0.002520
+2020-11-05 0.002459 
+
+Trump London
+       day   London
+2020-11-07 0.003813
+2020-11-04 0.002503
+2020-11-06 0.002493
+2021-01-06 0.002264
+2019-06-03 0.001783
+2020-11-08 0.001664
+2019-06-04 0.001661
+2020-11-05 0.001649
+2021-01-07 0.001531
+2021-01-08 0.001244 
+
+Trump NYC
+       day      NYC
+2020-09-30 0.005834
+2020-11-07 0.004420
+2021-01-06 0.004337
+2021-01-07 0.003281
+2020-10-23 0.003192
+2020-11-06 0.003186
+2020-10-02 0.002979
+2020-11-04 0.002966
+2021-01-08 0.002660
+2020-11-05 0.002517 
+
+Johnson Great Britain
+       day  Great Britain
+2020-05-24       0.002592
+2022-06-06       0.002217
+2019-07-23       0.002094
+2020-05-10       0.001997
+2020-10-31       0.001836
+2021-12-08       0.001821
+2020-05-25       0.001734
+2019-09-24       0.001609
+2020-04-06       0.001608
+2019-12-13       0.001608 
+
+Johnson US
+       day       US
+2019-04-10 0.000159
+2019-09-24 0.000122
+2021-04-13 0.000120
+2020-07-23 0.000112
+2019-07-23 0.000109
+2021-03-05 0.000097
+2019-12-12 0.000091
+2021-02-24 0.000090
+2019-12-13 0.000090
+2022-06-22 0.000084 
+
+Johnson Birmingham
+       day  Birmingham
+2019-06-21    0.003925
+2020-05-24    0.002736
+2021-12-08    0.002262
+2019-07-23    0.002206
+2019-06-23    0.002171
+2020-05-10    0.002001
+2022-06-06    0.001988
+2020-10-31    0.001954
+2019-06-22    0.001923
+2020-04-06    0.001784 
+
+Johnson LA
+       day       LA
+2019-04-10 0.000216
+2020-12-27 0.000131
+2020-07-23 0.000126
+2022-02-10 0.000111
+2021-03-05 0.000105
+2021-02-24 0.000094
+2019-02-14 0.000093
+2022-06-21 0.000091
+2019-02-07 0.000088
+2019-02-05 0.000087 
+
+Johnson London
+       day   London
+2020-05-24 0.002558
+2022-06-06 0.002277
+2019-07-23 0.002068
+2020-05-10 0.001996
+2020-10-31 0.001809
+2020-05-25 0.001757
+2019-09-24 0.001717
+2021-12-08 0.001708
+2019-12-13 0.001663
+2020-12-19 0.001629 
+
+Johnson NYC
+       day      NYC
+2019-09-24 0.000195
+2021-04-13 0.000155
+2019-07-23 0.000138
+2020-06-30 0.000123
+2019-03-12 0.000116
+2019-12-12 0.000116
+2019-12-13 0.000110
+2019-09-22 0.000108
+2020-04-07 0.000106
+2019-07-24 0.000103 
+</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
