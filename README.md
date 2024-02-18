@@ -35,10 +35,6 @@ The thesis aims to understand the dynamics of public perception by analyzing Twi
 - **preprocessing.py**: Script that calculates selects and preprocesses the data.
 - **requirements.txt**: Lists all Python libraries required to run the scripts.
 
-## Usage
-
-Instructions on how to set up the environment, execute the scripts, and interpret the results are provided in the `/docs` folder.
-
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](https://github.com/lgiesen/twitter-sentiment-analysis-politicians/blob/main/LICENSE) file for details.
