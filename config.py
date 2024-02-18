@@ -1,3 +1,6 @@
+"""
+This file comprises global variables, which are used by multiple files.
+"""
 presidents = ['trump', 'johnson']
 cities = ['Birmingham', 'LA', 'London', 'NYC']
 countries = ['Great Britain', 'US']

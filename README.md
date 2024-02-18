@@ -21,15 +21,19 @@ It demonstrates that local cultural, economic, and political contexts significan
 
 ## Files Description
 
-- **.env**: Reused local variables specific to your OS.
-- **config.py**: Reused global variables.
-- **data_overview.ipynb**: The data is aggregated and explored to get an initial overview of the data.
-- **analysis_events.ipynb**: Event analysis using the normalized post count (NPC) and compound sentiment score (CSS) is performed here.
-- **main.py**: The main script orchestrates the data collection, preprocessing, sentiment analysis, and visualization processes.
-- **get_average_sentiment.py**: Script that calculates the overall mean compound sentiment score.
-- **get_mean_count.py**: Script that calculates the mean non-normalized post counts.
-- **preprocessing.py**: Script that calculates selects and preprocesses the data.
-- **requirements.txt**: Lists all Python libraries required to run the scripts.
+- **Foundational Files**
+    - **.env**: Reused local variables specific to your OS.
+    - **config.py**: Reused global variables.
+    - **requirements.txt**: Lists all Python libraries required to run the scripts.
+- **Central Files**
+    - **Data Preparation**
+        - **data_collection.py**: The main script orchestrates the data collection, preprocessing, sentiment analysis, and visualization processes.
+        - **preprocessing.py**: Script that calculates selects and preprocesses the data.
+        - **get_mean_count.py**: Script that calculates the mean non-normalized post counts.
+        - **get_average_sentiment.py**: Script that calculates the overall mean compound sentiment score.
+    - **Analysis**
+        - **data_overview.ipynb**: The data is aggregated and explored to get an initial overview of the data.
+        - **analysis_events.ipynb**: Event analysis using the normalized post count (NPC) and compound sentiment score (CSS) is performed here.
 
 ## License
 

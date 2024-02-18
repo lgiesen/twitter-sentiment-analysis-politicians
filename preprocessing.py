@@ -4,7 +4,7 @@ import time
 
 import pandas as pd
 
-from main import export_data, get_data, get_files
+from data_collection import export_data, get_data, get_files
 
 
 def create_dataset(conn, leader_hashtags, query, president):

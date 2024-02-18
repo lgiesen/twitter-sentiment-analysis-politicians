@@ -1,5 +1,4 @@
 """
-Get Mean Count
 This script processes .db files containing tweet data and sentiment analysis results,
 aggregates the data, and saves the output in JSON format for further analysis.
 """
