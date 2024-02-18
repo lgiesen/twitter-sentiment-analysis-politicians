@@ -1,3 +1,5 @@
+[![Python 3.10](https://img.shields.io/badge/python-3.10.8-blue)](https://www.python.org/downloads/release/python-31013/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
+<!-- ![GitHub version](https://img.shields.io/github/v/release/lgiesen/twitter-sentiment-analysis-politicians?color=green&include_prereleases) -->
 
 # Twitter Sentiment Analysis of Politicians
 
