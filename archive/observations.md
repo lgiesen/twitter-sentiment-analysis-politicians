@@ -46,7 +46,7 @@ Overall
 - outliers
     - peaks
         - all significant peaks are (from 2018-11-21) until 2019-06-21
-        - the lowest point comprise the following data point:
+        - the highest point comprise the following data point:
             - 2019-06-21: sentiment score 0.50
         - other events
             - 2018-11-23: sentiment score 0.36
