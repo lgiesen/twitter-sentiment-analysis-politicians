@@ -1,20 +1,14 @@
 [![Python 3.10](https://img.shields.io/badge/python-3.10.8-blue)](https://www.python.org/downloads/release/python-31013/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
 <!-- ![GitHub version](https://img.shields.io/github/v/release/lgiesen/twitter-sentiment-analysis-politicians?color=green&include_prereleases) -->
 
-# Twitter Sentiment Analysis of Politicians
+## Contextualization
 
-This repository contains the code and data for a seminar thesis conducted at the University of Münster, focused on analyzing the influence of geographic location on public perceptions of political leaders Donald Trump and Boris Johnson from 2018 to 2022. Utilizing Twitter data, this research investigates how local cultural, economic, and political contexts affect public sentiment.
+This repository contains the code but not the data for a seminar thesis in the module Urban Analytics conducted at the University of Münster in the winter semester of 2023/2024.
+This seminar thesis explores the influence of geographic location on public perceptions of the political leaders Donald Trump and Boris Johnson between 2018 and 2022 through a detailed analysis of Twitter/X posts from Los Angeles, New York City, Birmingham, and London. 
 
-## Objective and Research Question
 
-The thesis aims to understand the dynamics of public perception by analyzing Twitter data related to Donald Trump and Boris Johnson, exploring the political discourse surrounding these figures before, during, and after their term in office. It seeks to fill the research gap by conducting an event-based comparative analysis of the normalized post count (NPC) and compound sentiment score (CSS) across different geographic locations, aiming to discern how geographic location influences public sentiment and attention towards these political leaders.
-
-## Key Results
-
-- Geographic location significantly influences public sentiment towards political leaders, with notable homogeneity within countries.
-- National contexts significantly affect public perception, overshadowing local concerns.
-- Key events, including elections and scandals, provoke significant, often critical, public reactions, especially within the leaders' home countries.
-- Donald Trump and Boris Johnson garnered more attention and criticism domestically, indicating the national relevance of political figures significantly affects public discourse.
+## Objectives and Key Results
+It demonstrates that local cultural, economic, and political contexts significantly affect public sentiment, with a notable homogeneity within countries that highlights the national context's impact. Key events, including elections and scandals, were found to provoke vital, often critical, reactions, particularly within the leaders' home countries, indicating that significant occurrences have the power to transcend geographical boundaries. This research contributes to urban analytics by highlighting the importance of geographic context in shaping political perceptions, offering valuable insights into how global political events are locally interpreted and responded to.
 
 ## Repository Structure
 
