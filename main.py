@@ -2,6 +2,9 @@ import os
 import sqlite3
 from sqlite3 import Error
 
+"""
+This script orchestrates the database connection and data selection/collection.
+"""
 
 def get_files(dir):
     """Get all files from a directory that do not start with a '.' (hidden files).
@@ -64,18 +67,3 @@ def export_data(data, path_without_filetype, pickle=True, csv=True):
         data.to_pickle(f"{path_without_filetype}.pkl")
     if csv:
         data.to_csv(f"{path_without_filetype}.csv")
-
-def get_data():
-    """Get predefined data paths and settings for the preprocessing task.
-    
-    Returns:
-    - A tuple containing root path, data path, list of presidents, cities, countries, years, and colors.
-    """
-    root = '/Volumes/Festplatte/data-UA/'
-    data_path = f'{root}data/'
-    presidents = ['trump', 'johnson']
-    cities = ['Birmingham', 'LA', 'London', 'NYC']
-    countries = ['Great Britain', 'US']
-    years = [str(year) for year in range(2018, 2023)]  # ['2018', '2019', '2020', '2021', '2022']
-    colors = ['#910830', '#BFBFBF', '#6D0624', '#5E5E5D']
-    return (root, data_path, presidents, cities, countries, years, colors)

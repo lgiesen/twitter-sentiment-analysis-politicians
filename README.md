@@ -21,9 +21,11 @@ It demonstrates that local cultural, economic, and political contexts significan
 
 ## Files Description
 
+- **.env**: Reused local variables specific to your OS.
+- **config.py**: Reused global variables.
 - **data_overview.ipynb**: The data is aggregated and explored to get an initial overview of the data.
 - **analysis_events.ipynb**: Event analysis using the normalized post count (NPC) and compound sentiment score (CSS) is performed here.
-- **main.py**: The main script that orchestrates the data collection, preprocessing, sentiment analysis, and visualization processes.
+- **main.py**: The main script orchestrates the data collection, preprocessing, sentiment analysis, and visualization processes.
 - **get_average_sentiment.py**: Script that calculates the overall mean compound sentiment score.
 - **get_mean_count.py**: Script that calculates the mean non-normalized post counts.
 - **preprocessing.py**: Script that calculates selects and preprocesses the data.
@@ -32,3 +34,11 @@ It demonstrates that local cultural, economic, and political contexts significan
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](https://github.com/lgiesen/twitter-sentiment-analysis-politicians/blob/main/LICENSE) file for details.
+
+## Usage
+
+Prerequisite: You need to have the data provided by the chair of Information Systems at the University of Münster.
+1. Adjust the `.env` file to match the filepath to the data and root directory.
+2. Execute the code from `preprocessing.py` to generate the dataset.
+3. Execute and adjust the code from the jupyter notebooks (suffix `.ipynb`) to your liking.
+4. Analyse the results.
