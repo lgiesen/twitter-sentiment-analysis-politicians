@@ -5,7 +5,6 @@ import pandas as pd
 
 from config import cities, countries, presidents
 
-root = os.environ['ROOT']
 data_path = os.environ['DATAPATH']
 
 
