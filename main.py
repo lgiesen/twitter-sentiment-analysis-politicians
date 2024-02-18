@@ -2,6 +2,7 @@ import os
 import sqlite3
 from sqlite3 import Error
 
+
 def get_files(dir):
     """ get all files from a directory 
     that do not start with a '.'
