@@ -1,10 +1,13 @@
 import json
+import os
 
 import pandas as pd
 
-from main import get_data
+from config import cities, countries, presidents
 
-(root, data_path, presidents, cities, countries, years, colors) = get_data()
+root = os.environ['ROOT']
+data_path = os.environ['DATAPATH']
+
 
 def get_mean(filepath, col='Compound'):
     data = pd.read_pickle(filepath)
@@ -26,9 +29,7 @@ def load_mean_count(json_filename, col=None):
         return None
 
 if __name__ == '__main__':
-    (root, data_path, presidents, cities, countries, years, colors) = get_data()
-    # means = pd.DataFrame(index=(presidents.append('All')), columns=(cities + countries + ['Total']))
-    means = pd.DataFrame(index=(presidents), columns=(cities + countries))
+    means = pd.DataFrame(index=(presidents.append('All')), columns=(cities + countries + ['Total']))
 
     for president in presidents:
         for city in cities:
@@ -47,6 +48,6 @@ if __name__ == '__main__':
         data = pd.read_pickle(f'{data_path}{president}.pkl')
         means.at[president, 'Total'] = data['Compound'].mean()
     
-    filepath = f'results/mean_compound'
+    filepath = 'results/mean_compound'
     means.to_pickle(f'{filepath}.pkl')
     means.to_csv(f'{filepath}.csv')
