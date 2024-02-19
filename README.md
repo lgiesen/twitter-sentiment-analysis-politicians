@@ -44,5 +44,6 @@ This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE
 Prerequisite: You need to have the data provided by the chair of Information Systems at the University of Münster.
 1. Adjust the `.env` file to match the filepath to the data and root directory.
 2. Execute the code from `preprocessing.py` to generate the dataset.
-3. Execute and adjust the code from the jupyter notebooks (suffix `.ipynb`) to your liking.
-4. Analyse the results.
+3. Execute the code from `get_average_sentiment.py` and `get_mean_count.py`to generate intermediate result files in the `results/` directory.
+4. Execute and adjust the code from the jupyter notebooks (suffix `.ipynb`) to your liking.
+5. Analyze the results.
